@@ -4,9 +4,9 @@
 \name{owidapi-package}
 \alias{owidapi}
 \alias{owidapi-package}
-\title{owidapi: Access the Our World in Data Chart and ETL Catalog APIs}
+\title{owidapi: Access the Our World in Data Chart API}
 \description{
-Retrieve datasets from Our World in Data (OWID) Chart API and ETL Catalog API \url{https://docs.owid.io/projects/etl/api/}.
+Retrieve datasets from Our World in Data (OWID) Chart API \url{https://docs.owid.io/projects/etl/api/}.
 }
 \seealso{
 Useful links:

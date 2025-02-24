@@ -18,7 +18,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
- Retrieve datasets from Our World in Data (OWID) [Chart API and ETL Catalog API](https://docs.owid.io/projects/etl/api/).
+ Retrieve datasets from Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/).
+
+ The ETL Catalog API is currently in beta and relies on internal APIs that change on a regular basis. Once the API is stable, it will also be included in this package. 
 
 
 ## Installation

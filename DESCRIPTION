@@ -1,13 +1,12 @@
 Package: owidapi
-Title: Access the Our World in Data Chart and ETL Catalog APIs
+Title: Access the Our World in Data Chart API
 Version: 0.0.0.9000
 Authors@R: c(
     person("Christoph", "Scheuch", , "christophh@tidy-intelligence.com", 
             role = c("aut", "cre", "cph"),
             comment = c(ORCID = "0009-0004-0423-6819"))
     )
-Description: Retrieve datasets from Our World in Data (OWID) Chart API and ETL 
-    Catalog API <https://docs.owid.io/projects/etl/api/>. 
+Description: Retrieve datasets from Our World in Data (OWID) Chart API <https://docs.owid.io/projects/etl/api/>. 
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)
