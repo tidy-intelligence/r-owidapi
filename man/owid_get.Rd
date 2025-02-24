@@ -56,7 +56,7 @@ owid_get("life-expectancy", c("USA"), 1970, 1980)
 
 # Download daily data for selected time periods
 owid_get(
- "daily-covid-vaccination-doses-per-capita", "DEU", 
+ "daily-covid-vaccination-doses-per-capita", "DEU",
  "2020-12-28", "2020-12-31"
 )
 

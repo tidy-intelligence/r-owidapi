@@ -13,19 +13,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# owidcd
+# owidapi
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/owidcd)](https://CRAN.R-project.org/package=owidcd)
 <!-- badges: end -->
 
-The goal of owidcd is to ...
 
 ## Installation
 
-You can install the development version of owidcd like so:
+You can install the development version of econtools from GitHub with:
 
-``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+```
+# install.packages("pak")
+pak::pak("tidy-intelligence/r-owidapi")
 ```
