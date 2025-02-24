@@ -129,6 +129,8 @@ owid_get <- function(
 
   if (snake_case) {
     colnames(data_raw) <- tolower(colnames(data_raw))
+    colnames(data_raw)[colnames(data_raw) == "entity"] <- "entity_name"
+    colnames(data_raw)[colnames(data_raw) == "code"] <- "entity_id"
   }
 
   data_raw
