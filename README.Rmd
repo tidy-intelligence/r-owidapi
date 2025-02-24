@@ -18,12 +18,14 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
+ Retrieve datasets from Our World in Data (OWID) [Chart API and ETL Catalog API](https://docs.owid.io/projects/etl/api/).
+
 
 ## Installation
 
-You can install the development version of econtools from GitHub with:
+You can install the development version of `owidapi` from GitHub with:
 
-```
+``` r
 # install.packages("pak")
 pak::pak("tidy-intelligence/r-owidapi")
 ```
