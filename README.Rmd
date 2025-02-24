@@ -29,3 +29,49 @@ You can install the development version of `owidapi` from GitHub with:
 # install.packages("pak")
 pak::pak("tidy-intelligence/r-owidapi")
 ```
+
+## Usage
+
+Load the package:
+```{r}
+library(owidapi)
+```
+
+Download the full life expectancy dataset:
+
+```{r}
+owid_get("life-expectancy")
+```
+
+Get life expectancy data for Australia, Austria, and Germany:
+```{r}
+owid_get("life-expectancy", entities = c("AUS", "AUT", "GER"))
+```
+
+Download US life expectancy data from 1970 to 1980:
+
+```{r}
+owid_get("life-expectancy", entities = "USA", start_date = 1970, end_date = 1980)
+```
+
+Get daily COVID-19 vaccination doses per capita for Germany between 2020-12-28 and 2020-12-31:
+
+```{r}
+owid_get(
+  "daily-covid-vaccination-doses-per-capita",
+  entities = "DEU",
+  start_date = "2020-12-28",
+  end_date = "2020-12-31"
+)
+```
+
+Download data directly using a URL:
+
+```{r}
+owid_get(
+  url = paste0(
+    "https://ourworldindata.org/grapher/civil-liberties-score-fh",
+    "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
+  )
+)
+```
