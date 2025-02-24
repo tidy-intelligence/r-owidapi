@@ -5,7 +5,6 @@ test_that("format_date handles different date formats correctly", {
   expect_equal(format_date(NA), NA_character_)
 })
 
-
 test_that("prepare_url correctly formats URLs", {
   url1 <- c(
     "https://ourworldindata.org/grapher/civil-liberties-score-fh.csv?tab=chart"
@@ -32,7 +31,7 @@ test_that("owid_get basic functionality works", {
 
   result <- owid_get("life-expectancy")
   expect_true(is.data.frame(result))
-  expect_true("entity" %in% names(result))
+  expect_true("entity_id" %in% names(result))
   expect_true(any(grepl("year|date", names(result))))
   expect_true(nrow(result) > 0)
 })
@@ -43,7 +42,7 @@ test_that("owid_get filters entities correctly", {
   entities <- c("USA", "DEU")
   result <- owid_get("life-expectancy", entities = entities)
   expect_true(is.data.frame(result))
-  expect_true(all(unique(result$code) %in% entities))
+  expect_true(all(unique(result$entity_id) %in% entities))
 })
 
 test_that("owid_get filters dates correctly", {
