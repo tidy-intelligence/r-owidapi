@@ -100,7 +100,7 @@ catalog <- owid_get_catalog()
 catalog
 ```
 
-To search for keywords in the catalog:
+To search for keywords in the catalog, you can use the following helper:
 
 ```{r}
 owid_search(catalog, c("climate", "carbon"))

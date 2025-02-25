@@ -49,5 +49,4 @@ owid_get_catalog <- function(
   }
 
   catalog
-
 }

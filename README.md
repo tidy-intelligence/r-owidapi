@@ -183,3 +183,54 @@ all.equal(metadata, metadata_url)
 #> [1] "Length mismatch: comparison on first 3 components"                     
 #> [2] "Component \"chart\": Component \"originalChartUrl\": 1 string mismatch"
 ```
+
+If you want to fetch the full catalog of available charts:
+
+``` r
+catalog <- owid_get_catalog()
+catalog
+#> # A tibble: 5,012 × 18
+#>       id slug     type  config created_at updated_at last_edited_at published_at
+#>    <int> <chr>    <chr> <chr>  <chr>      <chr>      <chr>          <chr>       
+#>  1  7968 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…
+#>  2  7967 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          
+#>  3  7966 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          
+#>  4  7965 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…
+#>  5  7964 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 10… "2024-07-30…
+#>  6  7963 relativ… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          
+#>  7  7962 tree-co… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          
+#>  8  7961 hdi-lan… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 15… "2024-07-28…
+#>  9  7960 hdi-per… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-28…
+#> 10  7959 are-con… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 12… ""          
+#> # ℹ 5,002 more rows
+#> # ℹ 10 more variables: last_edited_by_user_id <int>,
+#> #   last_edited_by_user_id_label <chr>, published_by_user_id <int>,
+#> #   published_by_user_id_label <chr>, is_indexable <int>, title <chr>,
+#> #   subtitle <chr>, note <chr>, title_plus_variant <chr>,
+#> #   config_with_defaults <chr>
+```
+
+To search for keywords in the catalog, you can use the following helper:
+
+``` r
+owid_search(catalog, c("climate", "carbon"))
+#> # A tibble: 210 × 18
+#>       id slug     type  config created_at updated_at last_edited_at published_at
+#>    <int> <chr>    <chr> <chr>  <chr>      <chr>      <chr>          <chr>       
+#>  1  7953 hdi-vs-… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-26…
+#>  2  7947 low-car… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-22 10… "2024-07-22…
+#>  3  7943 tempera… Scat… "{\"i… 2024-07-1… 2024-07-1… 2024-07-19 08… ""          
+#>  4  7926 global-… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-19 09… "2024-07-03…
+#>  5  7925 spring-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
+#>  6  7924 autumn-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
+#>  7  7923 winter-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
+#>  8  7922 summer-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
+#>  9  7921 country… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-10 10… "2024-07-03…
+#> 10  7917 materia… Stac… "{\"i… 2024-07-0… 2024-07-2… 2024-07-24 11… "2024-07-14…
+#> # ℹ 200 more rows
+#> # ℹ 10 more variables: last_edited_by_user_id <int>,
+#> #   last_edited_by_user_id_label <chr>, published_by_user_id <int>,
+#> #   published_by_user_id_label <chr>, is_indexable <int>, title <chr>,
+#> #   subtitle <chr>, note <chr>, title_plus_variant <chr>,
+#> #   config_with_defaults <chr>
+```
