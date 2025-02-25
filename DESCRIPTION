@@ -6,7 +6,10 @@ Authors@R: c(
             role = c("aut", "cre", "cph"),
             comment = c(ORCID = "0009-0004-0423-6819"))
     )
-Description: Retrieve datasets from Our World in Data (OWID) Chart API <https://docs.owid.io/projects/etl/api/>. 
+Description: Retrieve data from the Our World in Data (OWID) Chart API
+    <https://docs.owid.io/projects/etl/api/>. OWID provides public access to 
+    more than 5,000 data sets focusing on large global problems such as poverty, 
+    disease, hunger, climate change, war, existential risks, and inequality.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)

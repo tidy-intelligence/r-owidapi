@@ -12,12 +12,15 @@ Check](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/R-CMD-ch
 coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
-Retrieve datasets from Our World in Data (OWID) [Chart
-API](https://docs.owid.io/projects/etl/api/).
+Retrieve datasets from the Our World in Data (OWID) [Chart
+API](https://docs.owid.io/projects/etl/api/). OWID provides public
+access to more than 5,000 data sets focusing on large global problems
+such as poverty, disease, hunger, climate change, war, existential
+risks, and inequality.
 
-The ETL Catalog API is currently in beta and relies on internal APIs
-that change on a regular basis. Once the API is stable, it will also be
-included in this package.
+> ❗ **Note:** The ETL Catalog API is currently in beta and relies on
+> internal APIs that change on a regular basis. Once the API is stable,
+> it will also be included in this package.
 
 ## Installation
 
@@ -234,3 +237,10 @@ owid_search(catalog, c("climate", "carbon"))
 #> #   subtitle <chr>, note <chr>, title_plus_variant <chr>,
 #> #   config_with_defaults <chr>
 ```
+
+## Relation to Existing Packages
+
+The [owidR](https://github.com/piersyork/owidR) package is broken since
+Our World in Data updated the API, has not received a commit since
+November 2023, and uses different dependencies (e.g., `data.table`,
+`httr`, `rvest`).
