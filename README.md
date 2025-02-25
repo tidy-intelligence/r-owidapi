@@ -111,7 +111,7 @@ owid_get(
 )
 #> # A tibble: 4 × 4
 #>   entity_name entity_id day        daily_vaccinations_smoothed_per_million
-#>   <chr>       <chr>     <chr>                                        <dbl>
+#>   <chr>       <chr>     <date>                                       <dbl>
 #> 1 Germany     DEU       2020-12-28                                  0.0215
 #> 2 Germany     DEU       2020-12-29                                  0.0406
 #> 3 Germany     DEU       2020-12-30                                  0.0525
@@ -240,7 +240,7 @@ owid_search(catalog, c("climate", "carbon"))
 
 ## Relation to Existing Packages
 
-The [owidR](https://github.com/piersyork/owidR) package is broken since
-Our World in Data updated the API, has not received a commit since
+The [`owidR`](https://github.com/piersyork/owidR) package is broken
+since Our World in Data updated the API, has not received a commit since
 November 2023, and uses different dependencies (e.g., `data.table`,
 `httr`, `rvest`).

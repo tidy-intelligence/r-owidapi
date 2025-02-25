@@ -101,12 +101,30 @@ owid_get <- function(
     req <- request(url_prepared)
   }
 
+  resp <- get_chart_data(req)
+  data_raw <- read_chart_body(resp)
+
+  if (snake_case) {
+    colnames(data_raw) <- tolower(colnames(data_raw))
+    colnames(data_raw)[colnames(data_raw) == "entity"] <- "entity_name"
+    colnames(data_raw)[colnames(data_raw) == "code"] <- "entity_id"
+  }
+
+  data <- convert_day_columns(data_raw)
+
+  data
+}
+
+#' @keywords internal
+#' @noRd
+get_chart_data <- function(req) {
   tryCatch({
     resp <- req |>
       req_user_agent(
         "owidapi R package (https://github.com/tidy-intelligence/r-owidapi)"
       ) |>
       req_perform()
+    resp
   },
   error = function(e) {
     cli::cli_abort(
@@ -118,19 +136,32 @@ owid_get <- function(
       call = call("owid_get")
     )
   })
+}
 
-  data_raw <- resp |>
+#' @keywords internal
+#' @noRd
+read_chart_body <- function(resp) {
+  resp |>
     resp_body_string() |>
     textConnection() |>
     read.csv() |>
     tibble::as_tibble()
+}
 
-  if (snake_case) {
-    colnames(data_raw) <- tolower(colnames(data_raw))
-    colnames(data_raw)[colnames(data_raw) == "entity"] <- "entity_name"
-    colnames(data_raw)[colnames(data_raw) == "code"] <- "entity_id"
+#' @keywords internal
+#' @noRd
+convert_day_columns <- function(data) {
+  if ("day" %in% colnames(data)) {
+    day_col <- "day"
+  } else if ("Day" %in% colnames(data)) {
+    day_col <- "Day"
+  } else {
+    day_col <- NULL
   }
 
-  data_raw
+  if (!is.null(day_col)) {
+    data[[day_col]] <- as.Date(data[[day_col]])
+  }
 
+  data
 }
