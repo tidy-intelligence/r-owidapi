@@ -109,27 +109,71 @@ owid_get(
 #> 4 Germany     DEU       2020-12-31                                  0.0543
 ```
 
-Download data directly using a URL:
+Download data directly using an URL:
 
 ``` r
-owid_get(
-  url = paste0(
-    "https://ourworldindata.org/grapher/civil-liberties-score-fh",
-    "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
-  )
+url <- paste0(
+  "https://ourworldindata.org/grapher/civil-liberties-score-fh",
+  "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
 )
-#> # A tibble: 3,971 × 4
+owid_get(url = url)
+#> # A tibble: 114 × 4
 #>    entity_name entity_id  year civil.liberties.score
 #>    <chr>       <chr>     <int>                 <int>
-#>  1 Abkhazia    OWID_ABK   2005                    21
-#>  2 Abkhazia    OWID_ABK   2006                    21
-#>  3 Abkhazia    OWID_ABK   2007                    21
-#>  4 Abkhazia    OWID_ABK   2008                    21
-#>  5 Abkhazia    OWID_ABK   2009                    21
-#>  6 Abkhazia    OWID_ABK   2010                    22
-#>  7 Abkhazia    OWID_ABK   2011                    22
-#>  8 Abkhazia    OWID_ABK   2012                    22
-#>  9 Abkhazia    OWID_ABK   2013                    22
-#> 10 Abkhazia    OWID_ABK   2014                    23
-#> # ℹ 3,961 more rows
+#>  1 Albania     ALB        2005                    38
+#>  2 Albania     ALB        2006                    38
+#>  3 Albania     ALB        2007                    39
+#>  4 Albania     ALB        2008                    40
+#>  5 Albania     ALB        2009                    39
+#>  6 Albania     ALB        2010                    40
+#>  7 Albania     ALB        2011                    39
+#>  8 Albania     ALB        2012                    39
+#>  9 Albania     ALB        2013                    40
+#> 10 Albania     ALB        2014                    40
+#> # ℹ 104 more rows
+```
+
+You can get metadata as a list by either provoding the data set name or
+URL.
+
+``` r
+metadata <- owid_get_metadata("civil-liberties-score-fh")
+metadata_url <- owid_get_metadata(url = url)
+str(metadata)
+#> List of 3
+#>  $ chart         :List of 5
+#>   ..$ title           : chr "Civil liberties score"
+#>   ..$ subtitle        : chr "Based on the estimates and scoring by [Freedom House (2024)](#dod:freedom-house). It captures the extent of fre"| __truncated__
+#>   ..$ citation        : chr "Freedom House (2024)"
+#>   ..$ originalChartUrl: chr "https://ourworldindata.org/grapher/civil-liberties-score-fh"
+#>   ..$ selection       :List of 4
+#>   .. ..$ : chr "Argentina"
+#>   .. ..$ : chr "Australia"
+#>   .. ..$ : chr "Botswana"
+#>   .. ..$ : chr "China"
+#>  $ columns       :List of 1
+#>   ..$ Civil liberties score:List of 14
+#>   .. ..$ titleShort      : chr "Civil liberties score"
+#>   .. ..$ titleLong       : chr "Civil liberties score"
+#>   .. ..$ descriptionShort: chr "The variable identifies the fine-grained extent of freedom of expression and association, the rule of law, and "| __truncated__
+#>   .. ..$ descriptionKey  : list()
+#>   .. ..$ unit            : chr ""
+#>   .. ..$ timespan        : chr "2005-2023"
+#>   .. ..$ type            : chr "Integer"
+#>   .. ..$ owidVariableId  : int 901305
+#>   .. ..$ shortName       : chr "civlibs_score_fh"
+#>   .. ..$ lastUpdated     : chr "2024-05-16"
+#>   .. ..$ nextUpdate      : chr "2025-05-16"
+#>   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"
+#>   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
+#>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"
+#>  $ dateDownloaded: chr "2025-02-25"
+```
+
+The only difference is in the `originalChartUrl` value:
+
+``` r
+all.equal(metadata, metadata_url)
+#> [1] "Length mismatch: comparison on first 3 components"                     
+#> [2] "Component \"chart\": Component \"originalChartUrl\": 1 string mismatch"
 ```

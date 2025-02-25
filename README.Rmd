@@ -67,7 +67,7 @@ owid_get(
 )
 ```
 
-Download data directly using a URL:
+Download data directly using an URL:
 
 ```{r}
 url <- paste0(
