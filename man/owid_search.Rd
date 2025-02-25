@@ -27,6 +27,7 @@ searches all character and factor columns.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 # Get the OWID catalog
 catalog <- owid_get_catalog()
 
@@ -35,5 +36,6 @@ owid_search(catalog, c("climate", "carbon"))
 
 # Search only in the title column
 owid_search(catalog, c("climate", "carbon"), c("title"))
+}
 \dontshow{\}) # examplesIf}
 }

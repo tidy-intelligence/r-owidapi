@@ -107,4 +107,4 @@ owid_search(catalog, c("climate", "carbon"))
 
 ## Relation to Existing Packages
 
-The [owidR](https://github.com/piersyork/owidR) package is broken since Our World in Data updated the API, has not received a commit since November 2023, and uses different dependencies (e.g., `data.table`, `httr`, `rvest`).
+The [`owidR`](https://github.com/piersyork/owidR) package is broken since Our World in Data updated the API, has not received a commit since November 2023, and uses different dependencies (e.g., `data.table`, `httr`, `rvest`).

@@ -44,6 +44,7 @@ or direct URL. Allows filtering by entities and time periods.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 # Download a full table
 owid_get("life-expectancy")
 
@@ -72,5 +73,6 @@ owid_get(
    "?tab=chart&time=earliest..2023"
  )
 )
+}
 \dontshow{\}) # examplesIf}
 }

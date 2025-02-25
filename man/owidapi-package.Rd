@@ -6,7 +6,7 @@
 \alias{owidapi-package}
 \title{owidapi: Access the Our World in Data Chart API}
 \description{
-Retrieve datasets from Our World in Data (OWID) Chart API \url{https://docs.owid.io/projects/etl/api/}.
+Retrieve data from the Our World in Data (OWID) Chart API \url{https://docs.owid.io/projects/etl/api/}. OWID provides public access to more than 5,000 data sets focusing on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.
 }
 \seealso{
 Useful links:

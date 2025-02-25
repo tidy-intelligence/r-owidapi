@@ -21,6 +21,7 @@ specifying a dataset name or direct URL.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\donttest{
 # Download metadata using a data set
 owid_get_metadata("life-expectancy")
 
@@ -28,5 +29,6 @@ owid_get_metadata("life-expectancy")
 owid_get_metadata(
  url = "https://ourworldindata.org/grapher/civil-liberties-score-fh"
 )
+}
 \dontshow{\}) # examplesIf}
 }

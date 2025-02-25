@@ -15,6 +15,7 @@
 #'  the keywords in at least one of the specified columns.
 #'
 #' @examplesIf interactive()
+#' \donttest{
 #' # Get the OWID catalog
 #' catalog <- owid_get_catalog()
 #'
@@ -23,7 +24,7 @@
 #'
 #' # Search only in the title column
 #' owid_search(catalog, c("climate", "carbon"), c("title"))
-#'
+#' }
 #' @export
 owid_search <- function(data, keywords, columns = NULL) {
   if (!is.data.frame(data)) {

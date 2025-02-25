@@ -10,6 +10,7 @@
 #' @return A list containing the requested OWID metadata.
 #'
 #' @examplesIf interactive()
+#' \donttest{
 #' # Download metadata using a data set
 #' owid_get_metadata("life-expectancy")
 #'
@@ -17,7 +18,7 @@
 #' owid_get_metadata(
 #'  url = "https://ourworldindata.org/grapher/civil-liberties-score-fh"
 #' )
-#'
+#' }
 #' @export
 owid_get_metadata <- function(
   data_set = NULL,
