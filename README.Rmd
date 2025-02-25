@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # owidapi
 
 <!-- badges: start -->
+[![Codecov test coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
  Retrieve datasets from Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/).

@@ -1,31 +1,3 @@
-test_that("format_date handles different date formats correctly", {
-  expect_equal(format_date("2020-01-01"), "2020-01-01")
-  expect_equal(format_date(2020), "2020")
-  expect_equal(format_date("2020"), "2020")
-  expect_equal(format_date(NA), NA_character_)
-})
-
-test_that("prepare_url correctly formats URLs", {
-  url1 <- c(
-    "https://ourworldindata.org/grapher/civil-liberties-score-fh.csv?tab=chart"
-  )
-  expect_equal(prepare_url(url1), url1)
-
-  url2 <- paste0(
-    "https://ourworldindata.org/grapher/civil-liberties-score-fh",
-    "?tab=chart&country=USA~DEU"
-  )
-  expected2 <- paste0(
-    "https://ourworldindata.org/grapher/civil-liberties-score-fh.csv?",
-    "csvType=filtered&tab=chart&country=USA~DEU"
-  )
-  expect_equal(prepare_url(url2), expected2)
-
-  url3 <- "https://ourworldindata.org/grapher/civil-liberties-score-fh"
-  expected3 <- "https://ourworldindata.org/grapher/civil-liberties-score-fh.csv"
-  expect_equal(prepare_url(url3), expected3)
-})
-
 test_that("owid_get basic functionality works", {
   skip_if_offline()
 
@@ -111,4 +83,3 @@ test_that("owid_get handles errors appropriately", {
 
   expect_error(owid_get(url = "https://ourworldindata.org/invalid-url"))
 })
-

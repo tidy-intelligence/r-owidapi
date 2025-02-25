@@ -51,7 +51,6 @@ owid_get_metadata <- function(
       ),
       call = call("owid_get_metadata")
     )
-    return(invisible(NULL))
   })
 
   metadata <- resp |>
