@@ -70,7 +70,7 @@ owid_get(
 owid_get(
  url = paste0(
    "https://ourworldindata.org/grapher/civil-liberties-score-fh.csv",
-   "?tab=chart"
+   "?tab=chart&time=earliest..2023"
  )
 )
 \dontshow{\}) # examplesIf}
