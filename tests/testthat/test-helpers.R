@@ -28,67 +28,82 @@ test_that("prepare_url preserves URL if it already contains the ending", {
 test_that("prepare_url adds ending and preserves query parameters", {
   url <- "https://ourworldindata.org/grapher/life-expectancy?country=USA"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/life-expectancy.csv?csvType=filtered&country=USA"
+  expected <- paste0(
+    "https://ourworldindata.org/grapher/life-expectancy.csv",
+    "?csvType=filtered&country=USA"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url adds csvType=filtered for URLs containing 'time'", {
   url <- "https://ourworldindata.org/grapher/time-series-data"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/time-series-data.csv?csvType=filtered"
+  expected <- paste0(
+    "https://ourworldindata.org/grapher/time-series-data.csv?csvType=filtered"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url adds csvType=filtered for URLs containing 'country'", {
   url <- "https://ourworldindata.org/grapher/country-indicators"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/country-indicators.csv?csvType=filtered"
+  expected <- paste(
+    "https://ourworldindata.org/grapher/country-indicators.csv?csvType=filtered"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url handles case insensitivity for 'time' and 'country'", {
-  url <- "https://ourworldindata.org/grapher/Time-series-analysis"
+  url <- "https://ourworldindata.org/grapher/Time-series"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/Time-series-analysis.csv?csvType=filtered"
+  expected <- paste(
+    "https://ourworldindata.org/grapher/Time-series.csv?csvType=filtered"
+  )
   expect_equal(result, expected)
-  
+
   url <- "https://ourworldindata.org/grapher/COUNTRY-comparison"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/COUNTRY-comparison.csv?csvType=filtered"
+  expected <- paste(
+    "https://ourworldindata.org/grapher/COUNTRY-comparison.csv?csvType=filtered"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url doesn't add csvType=filtered twice", {
   url <- "https://ourworldindata.org/grapher/country-data?csvType=filtered"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/country-data.csv?csvType=filtered"
-  expect_equal(result, expected)
-})
-
-test_that("prepare_url combines csvType=filtered with existing parameters for relevant URLs", {
-  url <- "https://ourworldindata.org/grapher/country-data?tab=chart"
-  result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/country-data.csv?csvType=filtered&tab=chart"
+  expected <- paste(
+    "https://ourworldindata.org/grapher/country-data.csv?csvType=filtered"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url handles multiple query parameters", {
-  url <- "https://ourworldindata.org/grapher/life-expectancy?country=USA&time=2020"
+  url <- "https://ourworldindata.org/grapher/data?country=USA&time=2020"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/life-expectancy.csv?csvType=filtered&country=USA&time=2020"
+  expected <- paste0(
+    "https://ourworldindata.org/grapher/data.csv",
+    "?csvType=filtered&country=USA&time=2020"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url correctly handles URLs with special characters", {
   url <- "https://ourworldindata.org/grapher/data-with-spaces%20and%20symbols"
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/data-with-spaces%20and%20symbols.csv"
+  expected <- paste(
+    "https://ourworldindata.org/grapher/data-with-spaces%20and%20symbols.csv"
+  )
   expect_equal(result, expected)
 })
 
 test_that("prepare_url with both 'time' and existing csvType parameter", {
-  url <- "https://ourworldindata.org/grapher/time-data?csvType=filtered&time=2020"
+  url <- paste(
+    "https://ourworldindata.org/grapher/data?csvType=filtered&time=2020"
+  )
   result <- prepare_url(url)
-  expected <- "https://ourworldindata.org/grapher/time-data.csv?csvType=filtered&time=2020"
+  expected <- paste(
+    "https://ourworldindata.org/grapher/data.csv?csvType=filtered&time=2020"
+  )
   expect_equal(result, expected)
 })

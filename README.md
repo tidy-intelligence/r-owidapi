@@ -4,6 +4,12 @@
 # owidapi
 
 <!-- badges: start -->
+
+![R CMD
+Check](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/R-CMD-check.yaml/badge.svg)
+![Lint](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/lint.yaml/badge.svg)
+[![Codecov test
+coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
 Retrieve datasets from Our World in Data (OWID) [Chart
