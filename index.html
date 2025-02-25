@@ -192,6 +192,51 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">metadata</span>, <span class="va">metadata_url</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "Length mismatch: comparison on first 3 components"                     </span></span>
 <span><span class="co">#&gt; [2] "Component \"chart\": Component \"originalChartUrl\": 1 string mismatch"</span></span></code></pre></div>
+<p>If you want to fetch the full catalog of available charts:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">catalog</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/owid_get_catalog.html">owid_get_catalog</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">catalog</span></span>
+<span><span class="co">#&gt; # A tibble: 5,012 × 18</span></span>
+<span><span class="co">#&gt;       id slug     type  config created_at updated_at last_edited_at published_at</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;       </span></span>
+<span><span class="co">#&gt;  1  7968 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…</span></span>
+<span><span class="co">#&gt;  2  7967 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          </span></span>
+<span><span class="co">#&gt;  3  7966 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          </span></span>
+<span><span class="co">#&gt;  4  7965 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…</span></span>
+<span><span class="co">#&gt;  5  7964 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 10… "2024-07-30…</span></span>
+<span><span class="co">#&gt;  6  7963 relativ… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          </span></span>
+<span><span class="co">#&gt;  7  7962 tree-co… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          </span></span>
+<span><span class="co">#&gt;  8  7961 hdi-lan… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 15… "2024-07-28…</span></span>
+<span><span class="co">#&gt;  9  7960 hdi-per… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-28…</span></span>
+<span><span class="co">#&gt; 10  7959 are-con… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 12… ""          </span></span>
+<span><span class="co">#&gt; # ℹ 5,002 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 10 more variables: last_edited_by_user_id &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   last_edited_by_user_id_label &lt;chr&gt;, published_by_user_id &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   published_by_user_id_label &lt;chr&gt;, is_indexable &lt;int&gt;, title &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   config_with_defaults &lt;chr&gt;</span></span></code></pre></div>
+<p>To search for keywords in the catalog, you can use the following helper:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/owid_search.html">owid_search</a></span><span class="op">(</span><span class="va">catalog</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"climate"</span>, <span class="st">"carbon"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 210 × 18</span></span>
+<span><span class="co">#&gt;       id slug     type  config created_at updated_at last_edited_at published_at</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;       </span></span>
+<span><span class="co">#&gt;  1  7953 hdi-vs-… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-26…</span></span>
+<span><span class="co">#&gt;  2  7947 low-car… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-22 10… "2024-07-22…</span></span>
+<span><span class="co">#&gt;  3  7943 tempera… Scat… "{\"i… 2024-07-1… 2024-07-1… 2024-07-19 08… ""          </span></span>
+<span><span class="co">#&gt;  4  7926 global-… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-19 09… "2024-07-03…</span></span>
+<span><span class="co">#&gt;  5  7925 spring-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
+<span><span class="co">#&gt;  6  7924 autumn-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
+<span><span class="co">#&gt;  7  7923 winter-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
+<span><span class="co">#&gt;  8  7922 summer-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
+<span><span class="co">#&gt;  9  7921 country… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-10 10… "2024-07-03…</span></span>
+<span><span class="co">#&gt; 10  7917 materia… Stac… "{\"i… 2024-07-0… 2024-07-2… 2024-07-24 11… "2024-07-14…</span></span>
+<span><span class="co">#&gt; # ℹ 200 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 10 more variables: last_edited_by_user_id &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   last_edited_by_user_id_label &lt;chr&gt;, published_by_user_id &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   published_by_user_id_label &lt;chr&gt;, is_indexable &lt;int&gt;, title &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   config_with_defaults &lt;chr&gt;</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
