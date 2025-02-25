@@ -96,5 +96,12 @@ all.equal(metadata, metadata_url)
 If you want to fetch the full catalog of available charts:
 
 ```{r}
-owid_get_catalog()
+catalog <- owid_get_catalog()
+catalog
+```
+
+To search for keywords in the catalog:
+
+```{r}
+owid_search(catalog, c("climate", "carbon"))
 ```

@@ -5,12 +5,10 @@
 #'
 #' @return A tibble containing the OWID catalog.
 #' @examplesIf interactive()
-#'
 #' # Download a full table
 #' owid_get_catalog()
 #'
 #' @export
-#'
 owid_get_catalog <- function(
   snake_case = TRUE
 ) {

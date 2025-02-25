@@ -15,3 +15,17 @@ test_that("owid_get_catalog handles snake_case", {
   expect_s3_class(result, "tbl_df")
   expect_gt(nrow(result), 0)
 })
+
+test_that("owid_get_catalog handles request errors gracefully", {
+  with_mocked_bindings(
+    req_perform = function(...) {
+      cli_abort("Mocked network error")
+    },
+    {
+      expect_error(
+        owid_get_catalog(),
+        regexp = "Failed to retrieve data from Our World in Data\\."
+      )
+    }
+  )
+})

@@ -3,6 +3,7 @@
 export(owid_get)
 export(owid_get_catalog)
 export(owid_get_metadata)
+export(owid_search)
 import(cli)
 import(httr2)
 import(jsonlite)

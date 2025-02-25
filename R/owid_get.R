@@ -20,7 +20,6 @@
 #' @return A tibble containing the requested OWID data.
 #'
 #' @examplesIf interactive()
-#'
 #' # Download a full table
 #' owid_get("life-expectancy")
 #'
@@ -51,7 +50,6 @@
 #' )
 #'
 #' @export
-#'
 owid_get <- function(
   data_set = NULL,
   entities = NULL,

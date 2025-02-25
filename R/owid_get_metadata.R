@@ -10,7 +10,6 @@
 #' @return A list containing the requested OWID metadata.
 #'
 #' @examplesIf interactive()
-#'
 #' # Download metadata using a data set
 #' owid_get_metadata("life-expectancy")
 #'
@@ -20,7 +19,6 @@
 #' )
 #'
 #' @export
-#'
 owid_get_metadata <- function(
   data_set = NULL,
   url = NULL
