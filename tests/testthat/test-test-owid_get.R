@@ -17,7 +17,7 @@ test_that("prepare_url correctly formats URLs", {
   )
   expected2 <- paste0(
     "https://ourworldindata.org/grapher/civil-liberties-score-fh.csv?",
-    "tab=chart&country=USA~DEU"
+    "csvType=filtered&tab=chart&country=USA~DEU"
   )
   expect_equal(prepare_url(url2), expected2)
 
@@ -111,3 +111,4 @@ test_that("owid_get handles errors appropriately", {
 
   expect_error(owid_get(url = "https://ourworldindata.org/invalid-url"))
 })
+

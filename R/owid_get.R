@@ -98,7 +98,7 @@ owid_get <- function(
       req_url_path_append(paste0(data_set, ".csv")) |>
       req_url_query(!!!params)
   } else {
-    url_prepared <- prepare_url(url)
+    url_prepared <- prepare_url(url, ".csv")
     req <- request(url_prepared)
   }
 
@@ -139,15 +139,37 @@ owid_get <- function(
 
 #' @keywords internal
 #' @noRd
-prepare_url <- function(url) {
-  if (grepl("\\.csv\\?", url)) {
+prepare_url <- function(url, ending = ".csv") {
+  if (grepl(paste0("\\", ending, "\\?"), url)) {
     return(url)
   } else {
     parts <- strsplit(url, "\\?", fixed = FALSE)[[1]]
+    needs_filtered_param <- grepl("time|country", url, ignore.case = TRUE)
+
     if (length(parts) == 1) {
-      return(paste0(url, ".csv"))
+      base_url <- paste0(url, ending)
+
+      if (needs_filtered_param) {
+        return(paste0(base_url, "?csvType=filtered"))
+      } else {
+        return(base_url)
+      }
     }
-    modified_url <- paste0(parts[1], ".csv?", paste(parts[-1], collapse = "?"))
+
+    base_url <- paste0(parts[1], ending)
+    query_params <- parts[-1]
+
+    if (needs_filtered_param &&
+          !grepl("csvType=filtered", paste(query_params, collapse = "?"))) {
+      modified_url <- paste0(
+        base_url, "?csvType=filtered&", paste(query_params, collapse = "?")
+      )
+    } else {
+      modified_url <- paste0(
+        base_url, "?", paste(query_params, collapse = "?")
+      )
+    }
+
     return(modified_url)
   }
 }

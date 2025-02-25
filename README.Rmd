@@ -70,10 +70,22 @@ owid_get(
 Download data directly using a URL:
 
 ```{r}
-owid_get(
-  url = paste0(
-    "https://ourworldindata.org/grapher/civil-liberties-score-fh",
-    "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
-  )
+url <- paste0(
+  "https://ourworldindata.org/grapher/civil-liberties-score-fh",
+  "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
 )
+owid_get(url = url)
+```
+
+You can get metadata as a list by either provoding the data set name or URL.
+```{r}
+metadata <- owid_get_metadata("civil-liberties-score-fh")
+metadata_url <- owid_get_metadata(url = url)
+str(metadata)
+```
+
+The only difference is in the `originalChartUrl` value:
+
+```{r}
+all.equal(metadata, metadata_url)
 ```
