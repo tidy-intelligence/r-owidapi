@@ -40,8 +40,8 @@ prepare_url <- function(url, ending = ".csv") {
 #' @noRd
 format_date <- function(date) {
   if (!is.na(date) && grepl("^\\d{4}-\\d{2}-\\d{2}$", date)) {
-    return(date)
+    date
   } else {
-    return(as.character(date))
+    as.character(date)
   }
 }
