@@ -45,3 +45,16 @@ format_date <- function(date) {
     as.character(date)
   }
 }
+
+#' @keywords internal
+#' @noRd
+to_snake_case <- function(df) {
+  convert_string <- function(x) {
+    x <- gsub("_", " ", x)
+    x <- gsub("([a-z])([A-Z])", "\\1 \\2", x)
+    x <- tolower(x)
+    x <- gsub(" ", "_", x)
+  }
+  colnames(df) <- sapply(colnames(df), convert_string)
+  df
+}
