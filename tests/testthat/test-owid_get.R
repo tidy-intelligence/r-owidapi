@@ -83,3 +83,73 @@ test_that("owid_get handles errors appropriately", {
 
   expect_error(owid_get(url = "https://ourworldindata.org/invalid-url"))
 })
+
+test_that("convert_day_columns handles lowercase 'day' column", {
+  test_data <- data.frame(
+    id = 1:3,
+    day = c("2023-01-01", "2023-01-02", "2023-01-03"),
+    value = c(10, 20, 30)
+  )
+  result <- convert_day_columns(test_data)
+  expect_true(inherits(result$day, "Date"))
+  expect_equal(
+    as.character(result$day), c("2023-01-01", "2023-01-02", "2023-01-03")
+  )
+  expect_equal(result$id, test_data$id)
+  expect_equal(result$value, test_data$value)
+})
+
+test_that("convert_day_columns handles uppercase 'Day' column", {
+  test_data <- data.frame(
+    id = 1:3,
+    Day = c("2023-01-01", "2023-01-02", "2023-01-03"),
+    value = c(10, 20, 30)
+  )
+  result <- convert_day_columns(test_data)
+  expect_true(inherits(result$Day, "Date"))
+  expect_equal(
+    as.character(result$Day), c("2023-01-01", "2023-01-02", "2023-01-03")
+  )
+  expect_equal(result$id, test_data$id)
+  expect_equal(result$value, test_data$value)
+})
+
+test_that("convert_day_columns handles data without day column", {
+  test_data <- data.frame(
+    id = 1:3,
+    value = c(10, 20, 30)
+  )
+  result <- convert_day_columns(test_data)
+  expect_identical(result, test_data)
+})
+
+test_that("convert_day_columns handles different date formats", {
+  test_data <- data.frame(
+    id = 1:3,
+    day = c("2023/01/01", "01/02/2023", "2023-01-03"),
+    stringsAsFactors = FALSE
+  )
+  result <- convert_day_columns(test_data)
+  expect_true(inherits(result$day, "Date"))
+})
+
+test_that("convert_day_columns preserves row order", {
+  test_data <- data.frame(
+    id = c(3, 1, 2),
+    day = c("2023-01-03", "2023-01-01", "2023-01-02"),
+    value = c(30, 10, 20)
+  )
+  result <- convert_day_columns(test_data)
+  expect_equal(result$value, c(30, 10, 20))
+  expect_equal(
+    as.character(result$day), c("2023-01-03", "2023-01-01", "2023-01-02")
+  )
+})
+
+test_that("convert_day_columns handles empty dataframe", {
+  test_data <- data.frame(day = character(0))
+  result <- convert_day_columns(test_data)
+  expect_true(is.data.frame(result))
+  expect_true(inherits(result$day, "Date"))
+  expect_equal(nrow(result), 0)
+})
