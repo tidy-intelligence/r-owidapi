@@ -176,7 +176,7 @@ str(metadata)
 #>   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"
 #>   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
 #>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"
-#>  $ dateDownloaded: chr "2025-02-25"
+#>  $ dateDownloaded: chr "2025-02-26"
 ```
 
 The only difference is in the `originalChartUrl` value:
@@ -236,6 +236,35 @@ owid_search(catalog, c("climate", "carbon"))
 #> #   published_by_user_id_label <chr>, is_indexable <int>, title <chr>,
 #> #   subtitle <chr>, note <chr>, title_plus_variant <chr>,
 #> #   config_with_defaults <chr>
+```
+
+There are also a few experimental functions to embed OWID figures. You
+can create the HTML to embed a graph:
+
+``` r
+owid_embed(url)
+#> [1] "<iframe src=\"https://ourworldindata.org/grapher/civil-liberties-score-fh?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU\" loading=\"lazy\" style=\"width: 100%; height: 600px; border: 0px none;\" allow=\"web-share; clipboard-write\"></iframe>"
+```
+
+If you want to render embedded OWID figures in a Shiny app, you can use
+`owid_output()` and `owid_server()`:
+
+``` r
+library(shiny)
+
+ui <- fluidPage(
+ owid_output("co2_graph")
+)
+
+server <- function(input, output) {
+ owid_server(
+   "co2_graph", 
+   "https://ourworldindata.org/grapher/co2-emissions-per-capita",
+   height = "500px"
+  )
+}
+
+shinyApp(ui = ui, server = server)
 ```
 
 ## Relation to Existing Packages

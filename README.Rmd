@@ -105,6 +105,32 @@ To search for keywords in the catalog, you can use the following helper:
 owid_search(catalog, c("climate", "carbon"))
 ```
 
+There are also a few experimental functions to embed OWID figures. You can create the HTML to embed a graph: 
+
+```{r}
+owid_embed(url)
+```
+
+If you want to render embedded OWID figures in a Shiny app, you can use `owid_output()` and `owid_server()`:
+
+```{r, eval = FALSE}
+library(shiny)
+
+ui <- fluidPage(
+ owid_output("co2_graph")
+)
+
+server <- function(input, output) {
+ owid_server(
+   "co2_graph", 
+   "https://ourworldindata.org/grapher/co2-emissions-per-capita",
+   height = "500px"
+  )
+}
+
+shinyApp(ui = ui, server = server)
+```
+
 ## Relation to Existing Packages
 
 The [`owidR`](https://github.com/piersyork/owidR) package is broken since Our World in Data updated the API, has not received a commit since November 2023, and uses different dependencies (e.g., `data.table`, `httr`, `rvest`).
