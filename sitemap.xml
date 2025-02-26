@@ -6,9 +6,11 @@
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/index.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/news/index.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/index.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owid_embed.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owid_get.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owid_get_catalog.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owid_get_metadata.html</loc></url>
+<url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owid_output.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owid_search.html</loc></url>
 <url><loc>https://tidy-intelligence.github.io/r-owidapi/reference/owidapi-package.html</loc></url>
 </urlset>

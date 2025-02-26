@@ -188,7 +188,7 @@
 <span><span class="co">#&gt;   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"</span></span>
 <span><span class="co">#&gt;   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__</span></span>
 <span><span class="co">#&gt;   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"</span></span>
-<span><span class="co">#&gt;  $ dateDownloaded: chr "2025-02-25"</span></span></code></pre></div>
+<span><span class="co">#&gt;  $ dateDownloaded: chr "2025-02-26"</span></span></code></pre></div>
 <p>The only difference is in the <code>originalChartUrl</code> value:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">metadata</span>, <span class="va">metadata_url</span><span class="op">)</span></span>
@@ -239,6 +239,27 @@
 <span><span class="co">#&gt; #   published_by_user_id_label &lt;chr&gt;, is_indexable &lt;int&gt;, title &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   config_with_defaults &lt;chr&gt;</span></span></code></pre></div>
+<p>There are also a few experimental functions to embed OWID figures. You can create the HTML to embed a graph:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/owid_embed.html">owid_embed</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "&lt;iframe src=\"https://ourworldindata.org/grapher/civil-liberties-score-fh?tab=chart&amp;time=earliest..2023&amp;country=ARG~AUS~BWA~CHN~ALB~DEU\" loading=\"lazy\" style=\"width: 100%; height: 600px; border: 0px none;\" allow=\"web-share; clipboard-write\"&gt;&lt;/iframe&gt;"</span></span></code></pre></div>
+<p>If you want to render embedded OWID figures in a Shiny app, you can use <code><a href="reference/owid_output.html">owid_output()</a></code> and <code><a href="reference/owid_output.html">owid_server()</a></code>:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span>
+<span> <span class="fu"><a href="reference/owid_output.html">owid_output</a></span><span class="op">(</span><span class="st">"co2_graph"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span></span>
+<span> <span class="fu"><a href="reference/owid_output.html">owid_server</a></span><span class="op">(</span></span>
+<span>   <span class="st">"co2_graph"</span>, </span>
+<span>   <span class="st">"https://ourworldindata.org/grapher/co2-emissions-per-capita"</span>,</span>
+<span>   height <span class="op">=</span> <span class="st">"500px"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span>ui <span class="op">=</span> <span class="va">ui</span>, server <span class="op">=</span> <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="relation-to-existing-packages">Relation to Existing Packages<a class="anchor" aria-label="anchor" href="#relation-to-existing-packages"></a>
