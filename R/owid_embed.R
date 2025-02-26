@@ -33,9 +33,15 @@ owid_embed <- function(url, width = "100%", height = "600px") {
 
   #nolint start
   iframe_html <- paste0(
-    '<iframe src="', url, '" ',
+    '<iframe src="',
+    url,
+    '" ',
     'loading="lazy" ',
-    'style="width: ', width, '; height: ', height, '; border: 0px none;" ',
+    'style="width: ',
+    width,
+    '; height: ',
+    height,
+    '; border: 0px none;" ',
     'allow="web-share; clipboard-write"></iframe>'
   )
   #nolint end

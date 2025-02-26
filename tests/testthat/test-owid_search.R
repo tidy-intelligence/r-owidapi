@@ -1,11 +1,15 @@
 test_data <- data.frame(
   title = c(
-    "Climate Change", "Carbon Emissions",
-    "Global Warming", "Economic Growth"
+    "Climate Change",
+    "Carbon Emissions",
+    "Global Warming",
+    "Economic Growth"
   ),
   description = c(
-    "Data about climate.", "Emissions data.",
-    "Warming trends.", "GDP statistics."
+    "Data about climate.",
+    "Emissions data.",
+    "Warming trends.",
+    "GDP statistics."
   ),
   category = factor(c("Environment", "Environment", "Environment", "Economy")),
   stringsAsFactors = FALSE
@@ -37,7 +41,8 @@ test_that("Search returns empty data frame if no matches", {
 test_that("Function throws error for non-data frame input", {
   expect_error(
     owid_search(
-      list(a = 1), c("climate")
+      list(a = 1),
+      c("climate")
     ),
     "Input 'data' must be a data frame or tibble"
   )
@@ -57,7 +62,9 @@ test_that("Function throws error for invalid keywords", {
 test_that("Function throws error for non-existent columns", {
   expect_error(
     owid_search(
-      test_data, c("climate"), columns = c("nonexistent")
+      test_data,
+      c("climate"),
+      columns = c("nonexistent")
     ),
     "Some specified columns do not exist in the data"
   )

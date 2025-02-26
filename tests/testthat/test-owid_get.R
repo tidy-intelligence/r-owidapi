@@ -23,8 +23,10 @@ test_that("owid_get filters dates correctly", {
   start_year <- 1960
   end_year <- 1965
   result <- owid_get(
-    "life-expectancy", entities = "USA",
-    start_date = start_year, end_date = end_year
+    "life-expectancy",
+    entities = "USA",
+    start_date = start_year,
+    end_date = end_year
   )
   expect_true(is.data.frame(result))
   expect_true(all(result$year >= start_year & result$year <= end_year))
@@ -78,7 +80,6 @@ test_that("owid_get handles column short names", {
 })
 
 test_that("owid_get handles errors appropriately", {
-
   expect_error(owid_get("non-existent-dataset-12345"))
 
   expect_error(owid_get(url = "https://ourworldindata.org/invalid-url"))
@@ -93,7 +94,8 @@ test_that("convert_day_columns handles lowercase 'day' column", {
   result <- convert_day_columns(test_data)
   expect_true(inherits(result$day, "Date"))
   expect_equal(
-    as.character(result$day), c("2023-01-01", "2023-01-02", "2023-01-03")
+    as.character(result$day),
+    c("2023-01-01", "2023-01-02", "2023-01-03")
   )
   expect_equal(result$id, test_data$id)
   expect_equal(result$value, test_data$value)
@@ -108,7 +110,8 @@ test_that("convert_day_columns handles uppercase 'Day' column", {
   result <- convert_day_columns(test_data)
   expect_true(inherits(result$Day, "Date"))
   expect_equal(
-    as.character(result$Day), c("2023-01-01", "2023-01-02", "2023-01-03")
+    as.character(result$Day),
+    c("2023-01-01", "2023-01-02", "2023-01-03")
   )
   expect_equal(result$id, test_data$id)
   expect_equal(result$value, test_data$value)
@@ -142,7 +145,8 @@ test_that("convert_day_columns preserves row order", {
   result <- convert_day_columns(test_data)
   expect_equal(result$value, c(30, 10, 20))
   expect_equal(
-    as.character(result$day), c("2023-01-03", "2023-01-01", "2023-01-02")
+    as.character(result$day),
+    c("2023-01-03", "2023-01-01", "2023-01-02")
   )
 })
 

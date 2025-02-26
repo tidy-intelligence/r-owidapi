@@ -1,4 +1,3 @@
-
 #' @keywords internal
 #' @noRd
 prepare_url <- function(url, ending = ".csv") {
@@ -21,14 +20,20 @@ prepare_url <- function(url, ending = ".csv") {
     base_url <- paste0(parts[1], ending)
     query_params <- parts[-1]
 
-    if (needs_filtered_param &&
-          !grepl("csvType=filtered", paste(query_params, collapse = "?"))) {
+    if (
+      needs_filtered_param &&
+        !grepl("csvType=filtered", paste(query_params, collapse = "?"))
+    ) {
       modified_url <- paste0(
-        base_url, "?csvType=filtered&", paste(query_params, collapse = "?")
+        base_url,
+        "?csvType=filtered&",
+        paste(query_params, collapse = "?")
       )
     } else {
       modified_url <- paste0(
-        base_url, "?", paste(query_params, collapse = "?")
+        base_url,
+        "?",
+        paste(query_params, collapse = "?")
       )
     }
 

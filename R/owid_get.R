@@ -60,7 +60,6 @@ owid_get <- function(
   use_column_short_names = TRUE,
   snake_case = TRUE
 ) {
-
   if (is.null(url)) {
     base_url <- "https://ourworldindata.org/grapher/"
 
@@ -81,10 +80,14 @@ owid_get <- function(
 
     if (!is.null(start_date) || !is.null(end_date)) {
       time_start <- ifelse(
-        !is.null(start_date), format_date(start_date), "earliest"
+        !is.null(start_date),
+        format_date(start_date),
+        "earliest"
       )
       time_end <- ifelse(
-        !is.null(end_date), format_date(end_date), "latest"
+        !is.null(end_date),
+        format_date(end_date),
+        "latest"
       )
       params$time <- paste0(time_start, "..", time_end)
     }
@@ -118,24 +121,26 @@ owid_get <- function(
 #' @keywords internal
 #' @noRd
 get_chart_data <- function(req) {
-  tryCatch({
-    resp <- req |>
-      req_user_agent(
-        "owidapi R package (https://github.com/tidy-intelligence/r-owidapi)"
-      ) |>
-      req_perform()
-    resp
-  },
-  error = function(e) {
-    cli::cli_abort(
-      c(
-        "Failed to retrieve data from Our World in Data.",
-        "i" = "Error message: {conditionMessage(e)}",
-        "i" = "Check your internet connection and the dataset or URL."
-      ),
-      call = call("owid_get")
-    )
-  })
+  tryCatch(
+    {
+      resp <- req |>
+        req_user_agent(
+          "owidapi R package (https://github.com/tidy-intelligence/r-owidapi)"
+        ) |>
+        req_perform()
+      resp
+    },
+    error = function(e) {
+      cli::cli_abort(
+        c(
+          "Failed to retrieve data from Our World in Data.",
+          "i" = "Error message: {conditionMessage(e)}",
+          "i" = "Check your internet connection and the dataset or URL."
+        ),
+        call = call("owid_get")
+      )
+    }
+  )
 }
 
 #' @keywords internal

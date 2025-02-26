@@ -1,10 +1,11 @@
-
 test_that("owid_embed generates correct iframe HTML", {
   url <- "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   result <- owid_embed(url)
 
   expected <- paste0(
-    '<iframe src="', url, '" ',
+    '<iframe src="',
+    url,
+    '" ',
     'loading="lazy" ',
     'style="width: 100%; height: 600px; border: 0px none;" ',
     'allow="web-share; clipboard-write"></iframe>'
@@ -18,7 +19,9 @@ test_that("owid_embed allows custom width and height", {
   result <- owid_embed(url, width = "90%", height = "500px")
 
   expected <- paste0(
-    '<iframe src="', url, '" ',
+    '<iframe src="',
+    url,
+    '" ',
     'loading="lazy" ',
     'style="width: 90%; height: 500px; border: 0px none;" ',
     'allow="web-share; clipboard-write"></iframe>'
@@ -41,7 +44,9 @@ test_that("owid_embed works with different graph URLs", {
   result <- owid_embed(url)
 
   expected <- paste0(
-    '<iframe src="', url, '" ',
+    '<iframe src="',
+    url,
+    '" ',
     'loading="lazy" ',
     'style="width: 100%; height: 600px; border: 0px none;" ',
     'allow="web-share; clipboard-write"></iframe>'
