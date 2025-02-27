@@ -23,7 +23,9 @@ knitr::opts_chunk$set(
 
  Retrieve datasets from the Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/). OWID provides public access to more than 5,000 data sets focusing on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.
 
- > 💡 The ETL Catalog API is currently in beta and relies on internal APIs that change on a regular basis. Once the API is stable, it will also be included in this package.
+ The package is part of the [econdataverse](https://www.econdataverse.org/) family of packages aimed at helping economists and financial professionals work with sovereign-level economic data.
+
+ > 💡 The ETL Catalog API is currently in beta and relies on internal APIs that change on a regular basis. Once the API is stable, it is planned to be included in this package.
 
 ## Installation
 
@@ -69,7 +71,7 @@ owid_get(
 )
 ```
 
-Download data directly using an URL:
+Download data directly using an URL from the website:
 
 ```{r}
 url <- paste0(
@@ -105,13 +107,13 @@ To search for keywords in the catalog, you can use the following helper:
 owid_search(catalog, c("climate", "carbon"))
 ```
 
-There are also a few experimental functions to embed OWID figures. You can create the HTML to embed a graph: 
+There are also a few experimental functions to embed OWID charts. For instance, you can create the HTML to embed a graph: 
 
 ```{r}
 owid_embed(url)
 ```
 
-If you want to render embedded OWID figures in a Shiny app, you can use `owid_output()` and `owid_server()`:
+If you want to render embedded OWID charts in a Shiny app, you can use `owid_output()` and `owid_server()`:
 
 ```{r, eval = FALSE}
 library(shiny)
@@ -123,8 +125,7 @@ ui <- fluidPage(
 server <- function(input, output) {
  owid_server(
    "co2_graph", 
-   "https://ourworldindata.org/grapher/co2-emissions-per-capita",
-   height = "500px"
+   "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   )
 }
 

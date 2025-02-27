@@ -18,9 +18,14 @@ access to more than 5,000 data sets focusing on large global problems
 such as poverty, disease, hunger, climate change, war, existential
 risks, and inequality.
 
+The package is part of the
+[econdataverse](https://www.econdataverse.org/) family of packages aimed
+at helping economists and financial professionals work with
+sovereign-level economic data.
+
 > 💡 The ETL Catalog API is currently in beta and relies on internal
-> APIs that change on a regular basis. Once the API is stable, it will
-> also be included in this package.
+> APIs that change on a regular basis. Once the API is stable, it is
+> planned to be included in this package.
 
 ## Installation
 
@@ -118,7 +123,7 @@ owid_get(
 #> 4 Germany     DEU       2020-12-31                                  0.0543
 ```
 
-Download data directly using an URL:
+Download data directly using an URL from the website:
 
 ``` r
 url <- paste0(
@@ -176,7 +181,7 @@ str(metadata)
 #>   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"
 #>   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
 #>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"
-#>  $ dateDownloaded: chr "2025-02-26"
+#>  $ dateDownloaded: chr "2025-02-27"
 ```
 
 The only difference is in the `originalChartUrl` value:
@@ -238,15 +243,15 @@ owid_search(catalog, c("climate", "carbon"))
 #> #   config_with_defaults <chr>
 ```
 
-There are also a few experimental functions to embed OWID figures. You
-can create the HTML to embed a graph:
+There are also a few experimental functions to embed OWID charts. For
+instance, you can create the HTML to embed a graph:
 
 ``` r
 owid_embed(url)
 #> [1] "<iframe src=\"https://ourworldindata.org/grapher/civil-liberties-score-fh?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU\" loading=\"lazy\" style=\"width: 100%; height: 600px; border: 0px none;\" allow=\"web-share; clipboard-write\"></iframe>"
 ```
 
-If you want to render embedded OWID figures in a Shiny app, you can use
+If you want to render embedded OWID charts in a Shiny app, you can use
 `owid_output()` and `owid_server()`:
 
 ``` r
@@ -259,8 +264,7 @@ ui <- fluidPage(
 server <- function(input, output) {
  owid_server(
    "co2_graph", 
-   "https://ourworldindata.org/grapher/co2-emissions-per-capita",
-   height = "500px"
+   "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   )
 }
 
