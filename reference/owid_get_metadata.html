@@ -65,17 +65,186 @@ specifying a dataset name or direct URL.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive()</span></span></span>
-<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Download metadata using a data set</span></span></span>
 <span class="r-in"><span><span class="fu">owid_get_metadata</span><span class="op">(</span><span class="st">"life-expectancy"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Life expectancy"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$subtitle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "The [period life expectancy](#dod:period-life-expectancy) at birth, in a given year."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$citation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "UN WPP (2024); HMD (2024); Zijdeman et al. (2015); Riley (2005)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$originalChartUrl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://ourworldindata.org/grapher/life-expectancy"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "World"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Americas"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Europe"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Africa"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Asia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Oceania"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$titleShort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Life expectancy at birth"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$titleLong</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Life expectancy at birth - Various sources – period tables"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$descriptionShort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "The period life expectancy at birth, in a given year."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$descriptionKey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$descriptionKey[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Period life expectancy is a metric that summarizes death rates across all age groups in one particular year."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$descriptionKey[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "For a given year, it represents the remaining average lifespan for a hypothetical group of people, if they experienced the same age-specific death rates throughout the rest of their lives as the age-specific death rates seen in that particular year."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$descriptionKey[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Prior to 1950, we use HMD (2024) data combined with Zijdeman (2015). From 1950 onwards, we use UN WPP (2024) data. For old regional data, we use Riley (2005) estimates."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$shortUnit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "years"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "years"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$timespan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1543-2023"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Numeric"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$owidVariableId</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1002268</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$shortName</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "life_expectancy_0__sex_total__age_0"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$lastUpdated</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-12-03"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$nextUpdate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-12-03"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$citationShort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "UN WPP (2024); HMD (2024); Zijdeman et al. (2015); Riley (2005) – with minor processing by Our World in Data"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$citationLong</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "UN WPP (2024); HMD (2024); Zijdeman et al. (2015); Riley (2005) – with minor processing by Our World in Data. “Life expectancy at birth – Various sources – period tables” [dataset]. Human Mortality Database, “Human Mortality Database”; United Nations, “World Population Prospects”; Zijdeman et al., “Life Expectancy at birth 2”; James C. Riley, “Estimates of Regional and Global Life Expectancy, 1800-2001” [original data]."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Period life expectancy at birth - Sex: total - Age: 0`$fullMetadata</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://api.ourworldindata.org/v1/indicators/1002268.metadata.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dateDownloaded</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-02-27"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Download metadata using an url</span></span></span>
 <span class="r-in"><span><span class="fu">owid_get_metadata</span><span class="op">(</span></span></span>
 <span class="r-in"><span> url <span class="op">=</span> <span class="st">"https://ourworldindata.org/grapher/civil-liberties-score-fh"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$title</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Civil liberties score"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$subtitle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Based on the estimates and scoring by [Freedom House (2024)](#dod:freedom-house). It captures the extent of freedom of expression and association, the rule of law, and personal autonomy. Higher scores indicate more liberties."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$citation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Freedom House (2024)"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$originalChartUrl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://ourworldindata.org/grapher/civil-liberties-score-fh"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Argentina"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Australia"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Botswana"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $chart$selection[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "China"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$titleShort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Civil liberties score"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$titleLong</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Civil liberties score"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$descriptionShort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "The variable identifies the fine-grained extent of freedom of expression and association, the rule of law, and personal autonomy. Higher scores indicate more liberties."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$descriptionKey</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> list()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$unit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$timespan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2005-2023"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Integer"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$owidVariableId</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 901305</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$shortName</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "civlibs_score_fh"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$lastUpdated</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2024-05-16"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$nextUpdate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-05-16"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$citationShort</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Freedom House (2024) – processed by Our World in Data"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$citationLong</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freedom in the World” [original data]."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $columns$`Civil liberties score`$fullMetadata</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dateDownloaded</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2025-02-27"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
