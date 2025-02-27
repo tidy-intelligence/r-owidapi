@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-02-27T06:25Z
+last_built: 2025-02-27T06:31Z
 urls:
   reference: https://tidy-intelligence.github.io/r-owidapi/reference
   article: https://tidy-intelligence.github.io/r-owidapi/articles
