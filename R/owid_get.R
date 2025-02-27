@@ -1,5 +1,6 @@
 #' Download data from Our World in Data
 #'
+#' @description
 #' Retrieves datasets from Our World in Data (OWID) by specifying a dataset name
 #' or direct URL. Allows filtering by entities and time periods.
 #'
@@ -19,7 +20,7 @@
 #'
 #' @return A tibble containing the requested OWID data.
 #'
-#' @examplesIf interactive()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' # Download a full table
 #' owid_get("life-expectancy")

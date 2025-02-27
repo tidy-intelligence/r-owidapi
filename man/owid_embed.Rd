@@ -26,7 +26,6 @@ Creates HTML code to embed an interactive graph from Our World in Data
 into an HTML document using an iframe.
 }
 \examples{
-# Embed graph with custom dimensions
 owid_embed(
   "https://ourworldindata.org/grapher/co2-emissions-per-capita",
   width = "90\%",

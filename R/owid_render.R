@@ -10,8 +10,7 @@
 #' @param id Character string. The ID to use for the output element.
 #' @return A Shiny HTML output element where the OWID graph will be rendered.
 #'
-#' @examples
-#' if (interactive()) {
+#' @examplesIf interactive() & curl::has_internet()
 #' library(shiny)
 #'
 #' ui <- fluidPage(
@@ -32,7 +31,6 @@
 #' }
 #'
 #' shinyApp(ui = ui, server = server)
-#' }
 #'
 #' @export
 owid_output <- function(id) {

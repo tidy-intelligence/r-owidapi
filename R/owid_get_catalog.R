@@ -1,10 +1,13 @@
 #' Download data catalog of Our World in Data
 #'
+#' @description
+#' Downloads the data catalog of Our World in Data (OWID) hosted on Datasette.
+#'
 #' @param snake_case Logical. If TRUE (default), converts column names to
 #'  lowercase.
 #'
 #' @return A tibble containing the OWID catalog.
-#' @examplesIf interactive()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' # Download a full table
 #' owid_get_catalog()

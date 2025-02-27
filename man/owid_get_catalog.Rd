@@ -14,10 +14,10 @@ lowercase.}
 A tibble containing the OWID catalog.
 }
 \description{
-Download data catalog of Our World in Data
+Downloads the data catalog of Our World in Data (OWID) hosted on Datasette.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # Download a full table
 owid_get_catalog()

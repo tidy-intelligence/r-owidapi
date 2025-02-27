@@ -16,7 +16,6 @@
 #' @return A character string containing the HTML iframe to embed the graph.
 #'
 #' @examples
-#' # Embed graph with custom dimensions
 #' owid_embed(
 #'   "https://ourworldindata.org/grapher/co2-emissions-per-capita",
 #'   width = "90%",

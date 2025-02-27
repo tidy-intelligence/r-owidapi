@@ -1,5 +1,6 @@
 #' Search for keywords in OWID catalog data
 #'
+#' @description
 #' This function searches for a vector of keywords within specified columns of
 #' an OWID catalog data frame or tibble. If no columns are specified, it
 #' searches all character and factor columns.
@@ -14,7 +15,7 @@
 #' @return A filtered data frame containing only rows that match at least one of
 #'  the keywords in at least one of the specified columns.
 #'
-#' @examplesIf interactive()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' # Get the OWID catalog
 #' catalog <- owid_get_catalog()
@@ -49,5 +50,5 @@ owid_search <- function(data, keywords, columns = NULL) {
     }))
   })
 
-  return(data[match_rows, ])
+  data[match_rows, ]
 }

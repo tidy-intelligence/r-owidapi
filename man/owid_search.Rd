@@ -26,7 +26,7 @@ an OWID catalog data frame or tibble. If no columns are specified, it
 searches all character and factor columns.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 \donttest{
 # Get the OWID catalog
 catalog <- owid_get_catalog()

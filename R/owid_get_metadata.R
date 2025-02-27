@@ -1,5 +1,6 @@
 #' Download metadata from Our World in Data
 #'
+#' @description
 #' Retrieves the metadata for a data set from Our World in Data (OWID) by
 #' specifying a dataset name or direct URL.
 #'
@@ -9,7 +10,7 @@
 #'
 #' @return A list containing the requested OWID metadata.
 #'
-#' @examplesIf interactive()
+#' @examplesIf curl::has_internet()
 #' \donttest{
 #' # Download metadata using a data set
 #' owid_get_metadata("life-expectancy")

@@ -29,7 +29,7 @@ This function creates an HTML output element for embedding Our World in Data
 of your Shiny app.
 }
 \examples{
-if (interactive()) {
+\dontshow{if (interactive() & curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(shiny)
 
 ui <- fluidPage(
@@ -50,6 +50,5 @@ server <- function(input, output) {
 }
 
 shinyApp(ui = ui, server = server)
-}
-
+\dontshow{\}) # examplesIf}
 }
