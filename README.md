@@ -12,11 +12,11 @@ Check](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/R-CMD-ch
 coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
-Retrieve datasets from the Our World in Data (OWID) [Chart
+Retrieve data from the Our World in Data (OWID) [Chart
 API](https://docs.owid.io/projects/etl/api/). OWID provides public
-access to more than 5,000 data sets focusing on large global problems
-such as poverty, disease, hunger, climate change, war, existential
-risks, and inequality.
+access to more than 5,000 charts focusing on global problems such as
+poverty, disease, hunger, climate change, war, existential risks, and
+inequality.
 
 The package is part of the
 [econdataverse](https://www.econdataverse.org/) family of packages aimed
@@ -281,5 +281,5 @@ shinyApp(ui = ui, server = server)
 
 The [`owidR`](https://github.com/piersyork/owidR) package is broken
 since Our World in Data updated the API, has not received a commit since
-November 2023, and uses different dependencies (e.g., `data.table`,
-`httr`, `rvest`).
+November 2023, and uses a different set of dependencies (e.g.,
+`data.table`, `httr`, `rvest`).
