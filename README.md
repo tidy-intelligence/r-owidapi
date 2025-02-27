@@ -29,6 +29,12 @@ sovereign-level economic data.
 
 ## Installation
 
+You can install `wbwdi` from CRAN via:
+
+``` r
+install.packages("owidapi")
+```
+
 You can install the development version of `owidapi` from GitHub with:
 
 ``` r

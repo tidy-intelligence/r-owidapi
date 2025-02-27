@@ -6,3 +6,4 @@
 ^\.github$
 .lintr
 cran-comments.md
+^cran-comments\.md$
