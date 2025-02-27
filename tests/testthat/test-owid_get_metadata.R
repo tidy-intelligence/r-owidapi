@@ -1,4 +1,4 @@
-test_that("owid_get_metadata works with data_set parameter", {
+test_that("owid_get_metadata works with chart_id parameter", {
   skip_if_offline()
 
   result <- owid_get_metadata("life-expectancy")
@@ -19,25 +19,25 @@ test_that("owid_get_metadata works with URL parameter", {
   expect_true(!is.null(result$chart))
 })
 
-test_that("owid_get_metadata prioritizes url over data_set", {
+test_that("owid_get_metadata prioritizes url over chart_id", {
   skip_if_offline()
 
-  data_set <- "life-expectancy"
+  chart_id <- "life-expectancy"
   url <- "https://ourworldindata.org/grapher/civil-liberties-score-fh"
 
   expected_result <- owid_get_metadata(url = url)
-  actual_result <- owid_get_metadata(data_set = data_set, url = url)
+  actual_result <- owid_get_metadata(chart_id = chart_id, url = url)
 
   expect_equal(actual_result, expected_result)
 })
 
-test_that("owid_get_metadata handles invalid data_set parameter", {
+test_that("owid_get_metadata handles invalid chart_id parameter", {
   skip_if_offline()
 
-  data_set <- "non-existent-dataset-123456789"
+  chart_id <- "non-existent-dataset-123456789"
 
   expect_error(
-    owid_get_metadata(data_set = data_set),
+    owid_get_metadata(chart_id = chart_id),
     "Failed to retrieve data from Our World in Data"
   )
 })
@@ -53,9 +53,9 @@ test_that("owid_get_metadata handles invalid URL parameter", {
   )
 })
 
-test_that("owid_get_metadata throws error when both data_set & url are NULL", {
+test_that("owid_get_metadata throws error when both chart_id & url are NULL", {
   expect_error(
-    owid_get_metadata(data_set = NULL, url = NULL),
+    owid_get_metadata(chart_id = NULL, url = NULL),
     "Failed to retrieve data from Our World in Data"
   )
 })

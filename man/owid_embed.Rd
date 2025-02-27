@@ -2,13 +2,13 @@
 % Please edit documentation in R/owid_embed.R
 \name{owid_embed}
 \alias{owid_embed}
-\title{Embed Our World in Data Graph in HTML}
+\title{Embed Our World in Data Chart in HTML}
 \usage{
 owid_embed(url, width = "100\%", height = "600px")
 }
 \arguments{
 \item{url}{A character string containing the URL of the Our World in
-Data graph. Must begin with "https://ourworldindata.org/grapher/".}
+Data chart. Must begin with "https://ourworldindata.org/grapher/".}
 
 \item{width}{A character string specifying the width of the iframe.
 Default is "100\%".}
@@ -17,12 +17,12 @@ Default is "100\%".}
 Default is "600px".}
 }
 \value{
-A character string containing the HTML iframe to embed the graph.
+A character string containing the HTML iframe to embed the chart.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
-Creates HTML code to embed an interactive graph from Our World in Data
+Creates HTML code to embed an interactive chart from Our World in Data
 into an HTML document using an iframe.
 }
 \examples{

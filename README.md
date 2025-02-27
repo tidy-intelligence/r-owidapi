@@ -250,7 +250,7 @@ owid_search(catalog, c("climate", "carbon"))
 ```
 
 There are also a few experimental functions to embed OWID charts. For
-instance, you can create the HTML to embed a graph:
+instance, you can create the HTML to embed a chart:
 
 ``` r
 owid_embed(url)
@@ -264,12 +264,12 @@ If you want to render embedded OWID charts in a Shiny app, you can use
 library(shiny)
 
 ui <- fluidPage(
- owid_output("co2_graph")
+ owid_output("co2_chart")
 )
 
 server <- function(input, output) {
  owid_server(
-   "co2_graph", 
+   "co2_chart", 
    "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   )
 }

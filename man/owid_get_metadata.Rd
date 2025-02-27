@@ -4,20 +4,20 @@
 \alias{owid_get_metadata}
 \title{Download metadata from Our World in Data}
 \usage{
-owid_get_metadata(data_set = NULL, url = NULL)
+owid_get_metadata(chart_id = NULL, url = NULL)
 }
 \arguments{
-\item{data_set}{Character string specifying the dataset to download
+\item{chart_id}{Character string specifying the chart identifier
 (e.g., "life-expectancy"). Not required if \code{url} is provided.}
 
-\item{url}{Direct URL to an OWID dataset. If provided, \code{data_set} is ignored.}
+\item{url}{Direct URL to an OWID chart. If provided, \code{chart_id} is ignored.}
 }
 \value{
 A list containing the requested OWID metadata.
 }
 \description{
 Retrieves the metadata for a data set from Our World in Data (OWID) by
-specifying a dataset name or direct URL.
+specifying a chart identifier or direct URL.
 }
 \examples{
 \dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
