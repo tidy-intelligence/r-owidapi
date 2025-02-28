@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # owidapi
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/owidapi)](https://cran.r-project.org/package=owidapi)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/owidapi)](https://cran.r-project.org/package=owidapi)
 ![R CMD Check](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/R-CMD-check.yaml/badge.svg)
 ![Lint](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/lint.yaml/badge.svg)
 [![Codecov test coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
@@ -29,13 +31,13 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install `wbwdi` from CRAN via:
+You can install `wbwdi` from [CRAN](https://cran.r-project.org/package=owidapi) via:
 
 ``` r
 install.packages("owidapi")
 ```
 
-You can install the development version of `owidapi` from GitHub with:
+You can install the development version of `owidapi` from [GitHub](https://github.com/tidy-intelligence/r-wbwdi) with:
 
 ``` r
 # install.packages("pak")

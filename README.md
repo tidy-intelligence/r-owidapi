@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/owidapi)](https://cran.r-project.org/package=owidapi)
+[![CRAN
+downloads](https://cranlogs.r-pkg.org/badges/owidapi)](https://cran.r-project.org/package=owidapi)
 ![R CMD
 Check](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/R-CMD-check.yaml/badge.svg)
 ![Lint](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/lint.yaml/badge.svg)
@@ -29,13 +33,15 @@ sovereign-level economic data.
 
 ## Installation
 
-You can install `wbwdi` from CRAN via:
+You can install `wbwdi` from
+[CRAN](https://cran.r-project.org/package=owidapi) via:
 
 ``` r
 install.packages("owidapi")
 ```
 
-You can install the development version of `owidapi` from GitHub with:
+You can install the development version of `owidapi` from
+[GitHub](https://github.com/tidy-intelligence/r-wbwdi) with:
 
 ``` r
 # install.packages("pak")
@@ -187,7 +193,7 @@ str(metadata)
 #>   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"
 #>   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
 #>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"
-#>  $ dateDownloaded: chr "2025-02-27"
+#>  $ dateDownloaded: chr "2025-02-28"
 ```
 
 The only difference is in the `originalChartUrl` value:
