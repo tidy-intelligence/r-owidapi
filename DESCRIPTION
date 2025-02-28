@@ -1,14 +1,14 @@
 Package: owidapi
 Title: Access the Our World in Data Chart API
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
-    person("Christoph", "Scheuch", , "christophh@tidy-intelligence.com", 
+    person("Christoph", "Scheuch", , "christoph@tidy-intelligence.com", 
             role = c("aut", "cre", "cph"),
             comment = c(ORCID = "0009-0004-0423-6819"))
     )
 Description: Retrieve data from the Our World in Data (OWID) Chart API
     <https://docs.owid.io/projects/etl/api/>. OWID provides public access to 
-    more than 5,000 data sets focusing on large global problems such as poverty, 
+    more than 5,000 charts focusing on global problems such as poverty, 
     disease, hunger, climate change, war, existential risks, and inequality.
 License: MIT + file LICENSE
 Depends: 

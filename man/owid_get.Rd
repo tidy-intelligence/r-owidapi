@@ -5,7 +5,7 @@
 \title{Download data from Our World in Data}
 \usage{
 owid_get(
-  data_set = NULL,
+  chart_id = NULL,
   entities = NULL,
   start_date = NULL,
   end_date = NULL,
@@ -15,7 +15,7 @@ owid_get(
 )
 }
 \arguments{
-\item{data_set}{Character string specifying the dataset to download
+\item{chart_id}{Character string specifying the chart identifier
 (e.g., "life-expectancy"). Not required if \code{url} is provided.}
 
 \item{entities}{Vector of entity codes (e.g., c("USA", "DEU")).
@@ -27,7 +27,7 @@ a year. If NULL, starts from the earliest available data.}
 \item{end_date}{End date for filtering data. Can be a date string or a year.
 If NULL, ends with the latest available data.}
 
-\item{url}{Direct URL to an OWID dataset. If provided, \code{data_set} is ignored.}
+\item{url}{Direct URL to an OWID dataset. If provided, \code{chart_id} is ignored.}
 
 \item{use_column_short_names}{Logical. If TRUE (default), uses short column
 names.}
@@ -39,7 +39,7 @@ lowercase.}
 A tibble containing the requested OWID data.
 }
 \description{
-Retrieves datasets from Our World in Data (OWID) by specifying a dataset name
+Retrieves data from Our World in Data (OWID) by specifying a chart identifier
 or direct URL. Allows filtering by entities and time periods.
 }
 \examples{

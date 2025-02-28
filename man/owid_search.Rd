@@ -7,8 +7,7 @@
 owid_search(data, keywords, columns = NULL)
 }
 \arguments{
-\item{data}{A data frame or tibble, typically obtained from
-\link{owid_get_catalog}.}
+\item{data}{A data frame, typically obtained from \link{owid_get_catalog}.}
 
 \item{keywords}{A character vector of one or more keywords to search for.
 The search is case-insensitive.}
@@ -22,7 +21,7 @@ the keywords in at least one of the specified columns.
 }
 \description{
 This function searches for a vector of keywords within specified columns of
-an OWID catalog data frame or tibble. If no columns are specified, it
+an OWID catalog data frame. If no columns are specified, it
 searches all character and factor columns.
 }
 \examples{

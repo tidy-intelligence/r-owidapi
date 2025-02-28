@@ -2,11 +2,10 @@
 #'
 #' @description
 #' This function searches for a vector of keywords within specified columns of
-#' an OWID catalog data frame or tibble. If no columns are specified, it
+#' an OWID catalog data frame. If no columns are specified, it
 #' searches all character and factor columns.
 #'
-#' @param data A data frame or tibble, typically obtained from
-#'  \link{owid_get_catalog}.
+#' @param data A data frame, typically obtained from \link{owid_get_catalog}.
 #' @param keywords A character vector of one or more keywords to search for.
 #'  The search is case-insensitive.
 #' @param columns An optional character vector of column names to search within.
@@ -29,7 +28,7 @@
 #' @export
 owid_search <- function(data, keywords, columns = NULL) {
   if (!is.data.frame(data)) {
-    cli::cli_abort("Input 'data' must be a data frame or tibble")
+    cli::cli_abort("Input 'data' must be a data frame")
   }
 
   if (!is.character(keywords) || length(keywords) == 0) {

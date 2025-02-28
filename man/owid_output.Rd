@@ -3,7 +3,7 @@
 \name{owid_output}
 \alias{owid_output}
 \alias{owid_server}
-\title{Create OWID graph output elements in Shiny}
+\title{Create OWID chart output elements in Shiny}
 \usage{
 owid_output(id)
 
@@ -12,20 +12,20 @@ owid_server(id, url, width = "100\%", height = "600px")
 \arguments{
 \item{id}{Character string. The ID of the output element.}
 
-\item{url}{Character string. The URL of the OWID graph to embed.}
+\item{url}{Character string. The URL of the OWID chart to embed.}
 
-\item{width}{Character string. The width of the graph (default: "100\%").}
+\item{width}{Character string. The width of the chart (default: "100\%").}
 
-\item{height}{Character string. The height of the graph (default: "600px").}
+\item{height}{Character string. The height of the chart (default: "600px").}
 }
 \value{
-A Shiny HTML output element where the OWID graph will be rendered.
+A Shiny HTML output element where the OWID chart will be rendered.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 This function creates an HTML output element for embedding Our World in Data
-(OWID) graphs in a Shiny application. It should be used in the UI definition
+(OWID) charts in a Shiny application. It should be used in the UI definition
 of your Shiny app.
 }
 \examples{
@@ -33,17 +33,17 @@ of your Shiny app.
 library(shiny)
 
 ui <- fluidPage(
- owid_output("gdp_graph"),
- owid_output("co2_graph")
+ owid_output("gdp_chart"),
+ owid_output("co2_chart")
 )
 
 server <- function(input, output) {
  owid_server(
-   "gdp_graph",
+   "gdp_chart",
    "https://ourworldindata.org/grapher/gdp-per-capita-worldbank?tab=line"
  )
  owid_server(
-   "co2_graph",
+   "co2_chart",
    "https://ourworldindata.org/grapher/co2-emissions-per-capita",
    height = "500px"
  )

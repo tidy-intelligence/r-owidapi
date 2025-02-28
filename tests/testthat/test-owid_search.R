@@ -44,7 +44,7 @@ test_that("Function throws error for non-data frame input", {
       list(a = 1),
       c("climate")
     ),
-    "Input 'data' must be a data frame or tibble"
+    "Input 'data' must be a data frame"
   )
 })
 

@@ -12,11 +12,11 @@ Check](https://github.com/tidy-intelligence/r-owidapi/actions/workflows/R-CMD-ch
 coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
-Retrieve datasets from the Our World in Data (OWID) [Chart
+Retrieve data from the Our World in Data (OWID) [Chart
 API](https://docs.owid.io/projects/etl/api/). OWID provides public
-access to more than 5,000 data sets focusing on large global problems
-such as poverty, disease, hunger, climate change, war, existential
-risks, and inequality.
+access to more than 5,000 charts focusing on global problems such as
+poverty, disease, hunger, climate change, war, existential risks, and
+inequality.
 
 The package is part of the
 [econdataverse](https://www.econdataverse.org/) family of packages aimed
@@ -28,6 +28,12 @@ sovereign-level economic data.
 > planned to be included in this package.
 
 ## Installation
+
+You can install `wbwdi` from CRAN via:
+
+``` r
+install.packages("owidapi")
+```
 
 You can install the development version of `owidapi` from GitHub with:
 
@@ -244,7 +250,7 @@ owid_search(catalog, c("climate", "carbon"))
 ```
 
 There are also a few experimental functions to embed OWID charts. For
-instance, you can create the HTML to embed a graph:
+instance, you can create the HTML to embed a chart:
 
 ``` r
 owid_embed(url)
@@ -258,12 +264,12 @@ If you want to render embedded OWID charts in a Shiny app, you can use
 library(shiny)
 
 ui <- fluidPage(
- owid_output("co2_graph")
+ owid_output("co2_chart")
 )
 
 server <- function(input, output) {
  owid_server(
-   "co2_graph", 
+   "co2_chart", 
    "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   )
 }
@@ -275,5 +281,5 @@ shinyApp(ui = ui, server = server)
 
 The [`owidR`](https://github.com/piersyork/owidR) package is broken
 since Our World in Data updated the API, has not received a commit since
-November 2023, and uses different dependencies (e.g., `data.table`,
-`httr`, `rvest`).
+November 2023, and uses a different set of dependencies (e.g.,
+`data.table`, `httr`, `rvest`).

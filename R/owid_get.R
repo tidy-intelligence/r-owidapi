@@ -1,10 +1,10 @@
 #' Download data from Our World in Data
 #'
 #' @description
-#' Retrieves datasets from Our World in Data (OWID) by specifying a dataset name
+#' Retrieves data from Our World in Data (OWID) by specifying a chart identifier
 #' or direct URL. Allows filtering by entities and time periods.
 #'
-#' @param data_set Character string specifying the dataset to download
+#' @param chart_id Character string specifying the chart identifier
 #'  (e.g., "life-expectancy"). Not required if `url` is provided.
 #' @param entities Vector of entity codes (e.g., c("USA", "DEU")).
 #'   If NULL, data for all available entities is returned.
@@ -12,7 +12,7 @@
 #'   a year. If NULL, starts from the earliest available data.
 #' @param end_date End date for filtering data. Can be a date string or a year.
 #'   If NULL, ends with the latest available data.
-#' @param url Direct URL to an OWID dataset. If provided, `data_set` is ignored.
+#' @param url Direct URL to an OWID dataset. If provided, `chart_id` is ignored.
 #' @param use_column_short_names Logical. If TRUE (default), uses short column
 #'  names.
 #' @param snake_case Logical. If TRUE (default), converts column names to
@@ -53,7 +53,7 @@
 #' }
 #' @export
 owid_get <- function(
-  data_set = NULL,
+  chart_id = NULL,
   entities = NULL,
   start_date = NULL,
   end_date = NULL,
@@ -98,7 +98,7 @@ owid_get <- function(
     }
 
     req <- request(base_url) |>
-      req_url_path_append(paste0(data_set, ".csv")) |>
+      req_url_path_append(paste0(chart_id, ".csv")) |>
       req_url_query(!!!params)
   } else {
     url_prepared <- prepare_url(url, ".csv")
