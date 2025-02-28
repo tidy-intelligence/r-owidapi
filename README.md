@@ -33,7 +33,7 @@ sovereign-level economic data.
 
 ## Installation
 
-You can install `wbwdi` from
+You can install `owidapi` from
 [CRAN](https://cran.r-project.org/package=owidapi) via:
 
 ``` r
@@ -41,7 +41,7 @@ install.packages("owidapi")
 ```
 
 You can install the development version of `owidapi` from
-[GitHub](https://github.com/tidy-intelligence/r-wbwdi) with:
+[GitHub](https://github.com/tidy-intelligence/r-owidapi) with:
 
 ``` r
 # install.packages("pak")
