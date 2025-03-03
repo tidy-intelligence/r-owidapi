@@ -35,27 +35,10 @@ owid_get_metadata <- function(
     req <- request(url_prepared)
   }
 
-  tryCatch(
-    {
-      resp <- req |>
-        req_user_agent(
-          "owidapi R package (https://github.com/tidy-intelligence/r-owidapi)"
-        ) |>
-        req_perform()
-    },
-    error = function(e) {
-      cli::cli_abort(
-        c(
-          "Failed to retrieve data from Our World in Data.",
-          "i" = "Error message: {conditionMessage(e)}",
-          "i" = "Check your internet connection and the chart ID or URL."
-        ),
-        call = call("owid_get_metadata")
-      )
-    }
-  )
+  resp <- perform_request(req, "owid_get_metadata")
 
   metadata <- resp |>
     resp_body_json()
+
   metadata
 }
