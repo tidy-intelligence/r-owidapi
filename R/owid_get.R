@@ -105,7 +105,7 @@ owid_get <- function(
     req <- request(url_prepared)
   }
 
-  resp <- get_chart_data(req)
+  resp <- perform_request(req, "owid_get")
   data_raw <- read_chart_body(resp)
 
   if (snake_case) {
@@ -117,31 +117,6 @@ owid_get <- function(
   data <- convert_day_columns(data_raw)
 
   data
-}
-
-#' @keywords internal
-#' @noRd
-get_chart_data <- function(req) {
-  tryCatch(
-    {
-      resp <- req |>
-        req_user_agent(
-          "owidapi R package (https://github.com/tidy-intelligence/r-owidapi)"
-        ) |>
-        req_perform()
-      resp
-    },
-    error = function(e) {
-      cli::cli_abort(
-        c(
-          "Failed to retrieve data from Our World in Data.",
-          "i" = "Error message: {conditionMessage(e)}",
-          "i" = "Check your internet connection and the dataset or URL."
-        ),
-        call = call("owid_get")
-      )
-    }
-  )
 }
 
 #' @keywords internal
