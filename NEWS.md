@@ -1,6 +1,7 @@
 # owidapi (development version)
 
 - Encapsulated request logic in internal `perform_request()` function.
+- Updated variable parsing & introduced graceful error handling in `owid_get_catalog()`
 
 # owidapi 0.1.0
 
