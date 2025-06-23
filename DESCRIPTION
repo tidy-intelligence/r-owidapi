@@ -1,6 +1,6 @@
 Package: owidapi
 Title: Access the Our World in Data Chart API
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: c(
     person("Christoph", "Scheuch", , "christoph@tidy-intelligence.com", 
             role = c("aut", "cre", "cph"),
