@@ -143,20 +143,20 @@ url <- paste0(
   "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
 )
 owid_get(url = url)
-#> # A tibble: 114 × 4
+#> # A tibble: 126 × 4
 #>    entity_name entity_id  year civil.liberties.score
 #>    <chr>       <chr>     <int>                 <int>
-#>  1 Albania     ALB        2005                    38
-#>  2 Albania     ALB        2006                    38
-#>  3 Albania     ALB        2007                    39
-#>  4 Albania     ALB        2008                    40
-#>  5 Albania     ALB        2009                    39
-#>  6 Albania     ALB        2010                    40
-#>  7 Albania     ALB        2011                    39
-#>  8 Albania     ALB        2012                    39
-#>  9 Albania     ALB        2013                    40
-#> 10 Albania     ALB        2014                    40
-#> # ℹ 104 more rows
+#>  1 Albania     ALB        2003                    42
+#>  2 Albania     ALB        2004                    40
+#>  3 Albania     ALB        2005                    38
+#>  4 Albania     ALB        2006                    38
+#>  5 Albania     ALB        2007                    39
+#>  6 Albania     ALB        2008                    40
+#>  7 Albania     ALB        2009                    39
+#>  8 Albania     ALB        2010                    40
+#>  9 Albania     ALB        2011                    39
+#> 10 Albania     ALB        2012                    39
+#> # ℹ 116 more rows
 ```
 
 You can get metadata as a list by either provoding the data set name or
@@ -170,7 +170,7 @@ str(metadata)
 #>  $ chart         :List of 5
 #>   ..$ title           : chr "Civil liberties score"
 #>   ..$ subtitle        : chr "Based on the estimates and scoring by [Freedom House (2024)](#dod:freedom-house). It captures the extent of fre"| __truncated__
-#>   ..$ citation        : chr "Freedom House (2024)"
+#>   ..$ citation        : chr "Freedom House (2025)"
 #>   ..$ originalChartUrl: chr "https://ourworldindata.org/grapher/civil-liberties-score-fh"
 #>   ..$ selection       :List of 4
 #>   .. ..$ : chr "Argentina"
@@ -178,22 +178,21 @@ str(metadata)
 #>   .. ..$ : chr "Botswana"
 #>   .. ..$ : chr "China"
 #>  $ columns       :List of 1
-#>   ..$ Civil liberties score:List of 14
+#>   ..$ Civil liberties score:List of 13
 #>   .. ..$ titleShort      : chr "Civil liberties score"
 #>   .. ..$ titleLong       : chr "Civil liberties score"
 #>   .. ..$ descriptionShort: chr "The variable identifies the fine-grained extent of freedom of expression and association, the rule of law, and "| __truncated__
-#>   .. ..$ descriptionKey  : list()
 #>   .. ..$ unit            : chr ""
-#>   .. ..$ timespan        : chr "2005-2023"
+#>   .. ..$ timespan        : chr "2003-2024"
 #>   .. ..$ type            : chr "Integer"
-#>   .. ..$ owidVariableId  : int 901305
-#>   .. ..$ shortName       : chr "civlibs_score_fh"
-#>   .. ..$ lastUpdated     : chr "2024-05-16"
-#>   .. ..$ nextUpdate      : chr "2025-05-16"
-#>   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"
-#>   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
-#>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"
-#>  $ dateDownloaded: chr "2025-02-28"
+#>   .. ..$ owidVariableId  : int 1039982
+#>   .. ..$ shortName       : chr "civlibs_score"
+#>   .. ..$ lastUpdated     : chr "2025-06-02"
+#>   .. ..$ nextUpdate      : chr "2026-06-02"
+#>   .. ..$ citationShort   : chr "Freedom House (2025) – processed by Our World in Data"
+#>   .. ..$ citationLong    : chr "Freedom House (2025) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
+#>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/1039982.metadata.json"
+#>  $ dateDownloaded: chr "2025-06-23"
 ```
 
 The only difference is in the `originalChartUrl` value:
@@ -209,50 +208,48 @@ If you want to fetch the full catalog of available charts:
 ``` r
 catalog <- owid_get_catalog()
 catalog
-#> # A tibble: 5,012 × 18
-#>       id slug     type  config created_at updated_at last_edited_at published_at
-#>    <int> <chr>    <chr> <chr>  <chr>      <chr>      <chr>          <chr>       
-#>  1  7968 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…
-#>  2  7967 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          
-#>  3  7966 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          
-#>  4  7965 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…
-#>  5  7964 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 10… "2024-07-30…
-#>  6  7963 relativ… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          
-#>  7  7962 tree-co… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          
-#>  8  7961 hdi-lan… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 15… "2024-07-28…
-#>  9  7960 hdi-per… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-28…
-#> 10  7959 are-con… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 12… ""          
-#> # ℹ 5,002 more rows
-#> # ℹ 10 more variables: last_edited_by_user_id <int>,
-#> #   last_edited_by_user_id_label <chr>, published_by_user_id <int>,
-#> #   published_by_user_id_label <chr>, is_indexable <int>, title <chr>,
-#> #   subtitle <chr>, note <chr>, title_plus_variant <chr>,
-#> #   config_with_defaults <chr>
+#> # A tibble: 5,301 × 19
+#>    rowid    id config_id            is_inheritance_enabled created_at updated_at
+#>    <int> <int> <chr>                <lgl>                  <date>     <date>    
+#>  1    26  8727 01978d86-beee-7595-… TRUE                   2025-06-20 2025-06-21
+#>  2    25  8726 01978cf4-6363-7356-… FALSE                  2025-06-20 2025-06-21
+#>  3    24  8725 01978ce6-0056-70d1-… TRUE                   2025-06-20 2025-06-21
+#>  4    23  8724 01978c7e-4996-7d83-… TRUE                   2025-06-20 2025-06-21
+#>  5    22  8723 01978878-d5b8-78c0-… FALSE                  2025-06-19 2025-06-19
+#>  6    21  8722 01978873-eaf5-75c0-… FALSE                  2025-06-19 2025-06-19
+#>  7    20  8721 019787a1-5f3e-7001-… FALSE                  2025-06-19 NA        
+#>  8    19  8720 019782bc-b4ad-71d2-… TRUE                   2025-06-18 NA        
+#>  9    18  8719 019781f9-87c8-7f47-… FALSE                  2025-06-18 2025-06-18
+#> 10    17  8718 019781ec-db06-7b85-… TRUE                   2025-06-18 2025-06-18
+#> # ℹ 5,291 more rows
+#> # ℹ 13 more variables: last_edited_at <date>, published_at <date>,
+#> #   last_edited_by_user_id <int>, published_by_user_id <int>,
+#> #   is_indexable <lgl>, config <chr>, slug <chr>, type <chr>, title <chr>,
+#> #   subtitle <chr>, note <chr>, title_plus_variant <chr>, is_published <lgl>
 ```
 
 To search for keywords in the catalog, you can use the following helper:
 
 ``` r
 owid_search(catalog, c("climate", "carbon"))
-#> # A tibble: 210 × 18
-#>       id slug     type  config created_at updated_at last_edited_at published_at
-#>    <int> <chr>    <chr> <chr>  <chr>      <chr>      <chr>          <chr>       
-#>  1  7953 hdi-vs-… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-26…
-#>  2  7947 low-car… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-22 10… "2024-07-22…
-#>  3  7943 tempera… Scat… "{\"i… 2024-07-1… 2024-07-1… 2024-07-19 08… ""          
-#>  4  7926 global-… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-19 09… "2024-07-03…
-#>  5  7925 spring-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
-#>  6  7924 autumn-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
-#>  7  7923 winter-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
-#>  8  7922 summer-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…
-#>  9  7921 country… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-10 10… "2024-07-03…
-#> 10  7917 materia… Stac… "{\"i… 2024-07-0… 2024-07-2… 2024-07-24 11… "2024-07-14…
-#> # ℹ 200 more rows
-#> # ℹ 10 more variables: last_edited_by_user_id <int>,
-#> #   last_edited_by_user_id_label <chr>, published_by_user_id <int>,
-#> #   published_by_user_id_label <chr>, is_indexable <int>, title <chr>,
-#> #   subtitle <chr>, note <chr>, title_plus_variant <chr>,
-#> #   config_with_defaults <chr>
+#> # A tibble: 206 × 19
+#>    rowid    id config_id            is_inheritance_enabled created_at updated_at
+#>    <int> <int> <chr>                <lgl>                  <date>     <date>    
+#>  1  5166  8555 0195a9ea-1bb2-7af4-… FALSE                  2025-03-18 2025-03-18
+#>  2  5131  8509 01950523-a967-7c01-… TRUE                   2025-02-14 2025-03-23
+#>  3  5130  8508 01950523-a857-72c1-… TRUE                   2025-02-14 2025-03-23
+#>  4  5105  8472 0194b2a8-e036-7c09-… FALSE                  2025-01-29 2025-04-07
+#>  5  4900  8266 01933e25-e0bc-70e5-… FALSE                  2024-11-18 2024-11-22
+#>  6  4869  8222 0192d85f-7e6f-7cbb-… FALSE                  2024-10-29 2025-04-07
+#>  7  5059  8032 0191c217-8b0d-7612-… TRUE                   2024-09-05 2025-05-26
+#>  8  5058  8031 0191c217-8a17-7cd8-… TRUE                   2024-09-05 2025-05-26
+#>  9  5057  8030 0191c217-8916-71c6-… TRUE                   2024-09-05 2025-05-26
+#> 10  5056  8029 0191c217-8831-7fc9-… TRUE                   2024-09-05 2025-05-26
+#> # ℹ 196 more rows
+#> # ℹ 13 more variables: last_edited_at <date>, published_at <date>,
+#> #   last_edited_by_user_id <int>, published_by_user_id <int>,
+#> #   is_indexable <lgl>, config <chr>, slug <chr>, type <chr>, title <chr>,
+#> #   subtitle <chr>, note <chr>, title_plus_variant <chr>, is_published <lgl>
 ```
 
 There are also a few experimental functions to embed OWID charts. For
