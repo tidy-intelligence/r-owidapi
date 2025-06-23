@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">owidapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -146,20 +146,20 @@
 <span>  <span class="st">"?tab=chart&amp;time=earliest..2023&amp;country=ARG~AUS~BWA~CHN~ALB~DEU"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/owid_get.html">owid_get</a></span><span class="op">(</span>url <span class="op">=</span> <span class="va">url</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 114 × 4</span></span>
+<span><span class="co">#&gt; # A tibble: 126 × 4</span></span>
 <span><span class="co">#&gt;    entity_name entity_id  year civil.liberties.score</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;int&gt;                 &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  1 Albania     ALB        2005                    38</span></span>
-<span><span class="co">#&gt;  2 Albania     ALB        2006                    38</span></span>
-<span><span class="co">#&gt;  3 Albania     ALB        2007                    39</span></span>
-<span><span class="co">#&gt;  4 Albania     ALB        2008                    40</span></span>
-<span><span class="co">#&gt;  5 Albania     ALB        2009                    39</span></span>
-<span><span class="co">#&gt;  6 Albania     ALB        2010                    40</span></span>
-<span><span class="co">#&gt;  7 Albania     ALB        2011                    39</span></span>
-<span><span class="co">#&gt;  8 Albania     ALB        2012                    39</span></span>
-<span><span class="co">#&gt;  9 Albania     ALB        2013                    40</span></span>
-<span><span class="co">#&gt; 10 Albania     ALB        2014                    40</span></span>
-<span><span class="co">#&gt; # ℹ 104 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt;  1 Albania     ALB        2003                    42</span></span>
+<span><span class="co">#&gt;  2 Albania     ALB        2004                    40</span></span>
+<span><span class="co">#&gt;  3 Albania     ALB        2005                    38</span></span>
+<span><span class="co">#&gt;  4 Albania     ALB        2006                    38</span></span>
+<span><span class="co">#&gt;  5 Albania     ALB        2007                    39</span></span>
+<span><span class="co">#&gt;  6 Albania     ALB        2008                    40</span></span>
+<span><span class="co">#&gt;  7 Albania     ALB        2009                    39</span></span>
+<span><span class="co">#&gt;  8 Albania     ALB        2010                    40</span></span>
+<span><span class="co">#&gt;  9 Albania     ALB        2011                    39</span></span>
+<span><span class="co">#&gt; 10 Albania     ALB        2012                    39</span></span>
+<span><span class="co">#&gt; # ℹ 116 more rows</span></span></code></pre></div>
 <p>You can get metadata as a list by either provoding the data set name or URL.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/owid_get_metadata.html">owid_get_metadata</a></span><span class="op">(</span><span class="st">"civil-liberties-score-fh"</span><span class="op">)</span></span>
@@ -169,7 +169,7 @@
 <span><span class="co">#&gt;  $ chart         :List of 5</span></span>
 <span><span class="co">#&gt;   ..$ title           : chr "Civil liberties score"</span></span>
 <span><span class="co">#&gt;   ..$ subtitle        : chr "Based on the estimates and scoring by [Freedom House (2024)](#dod:freedom-house). It captures the extent of fre"| __truncated__</span></span>
-<span><span class="co">#&gt;   ..$ citation        : chr "Freedom House (2024)"</span></span>
+<span><span class="co">#&gt;   ..$ citation        : chr "Freedom House (2025)"</span></span>
 <span><span class="co">#&gt;   ..$ originalChartUrl: chr "https://ourworldindata.org/grapher/civil-liberties-score-fh"</span></span>
 <span><span class="co">#&gt;   ..$ selection       :List of 4</span></span>
 <span><span class="co">#&gt;   .. ..$ : chr "Argentina"</span></span>
@@ -177,22 +177,21 @@
 <span><span class="co">#&gt;   .. ..$ : chr "Botswana"</span></span>
 <span><span class="co">#&gt;   .. ..$ : chr "China"</span></span>
 <span><span class="co">#&gt;  $ columns       :List of 1</span></span>
-<span><span class="co">#&gt;   ..$ Civil liberties score:List of 14</span></span>
+<span><span class="co">#&gt;   ..$ Civil liberties score:List of 13</span></span>
 <span><span class="co">#&gt;   .. ..$ titleShort      : chr "Civil liberties score"</span></span>
 <span><span class="co">#&gt;   .. ..$ titleLong       : chr "Civil liberties score"</span></span>
 <span><span class="co">#&gt;   .. ..$ descriptionShort: chr "The variable identifies the fine-grained extent of freedom of expression and association, the rule of law, and "| __truncated__</span></span>
-<span><span class="co">#&gt;   .. ..$ descriptionKey  : list()</span></span>
 <span><span class="co">#&gt;   .. ..$ unit            : chr ""</span></span>
-<span><span class="co">#&gt;   .. ..$ timespan        : chr "2005-2023"</span></span>
+<span><span class="co">#&gt;   .. ..$ timespan        : chr "2003-2024"</span></span>
 <span><span class="co">#&gt;   .. ..$ type            : chr "Integer"</span></span>
-<span><span class="co">#&gt;   .. ..$ owidVariableId  : int 901305</span></span>
-<span><span class="co">#&gt;   .. ..$ shortName       : chr "civlibs_score_fh"</span></span>
-<span><span class="co">#&gt;   .. ..$ lastUpdated     : chr "2024-05-16"</span></span>
-<span><span class="co">#&gt;   .. ..$ nextUpdate      : chr "2025-05-16"</span></span>
-<span><span class="co">#&gt;   .. ..$ citationShort   : chr "Freedom House (2024) – processed by Our World in Data"</span></span>
-<span><span class="co">#&gt;   .. ..$ citationLong    : chr "Freedom House (2024) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__</span></span>
-<span><span class="co">#&gt;   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/901305.metadata.json"</span></span>
-<span><span class="co">#&gt;  $ dateDownloaded: chr "2025-02-28"</span></span></code></pre></div>
+<span><span class="co">#&gt;   .. ..$ owidVariableId  : int 1039982</span></span>
+<span><span class="co">#&gt;   .. ..$ shortName       : chr "civlibs_score"</span></span>
+<span><span class="co">#&gt;   .. ..$ lastUpdated     : chr "2025-06-02"</span></span>
+<span><span class="co">#&gt;   .. ..$ nextUpdate      : chr "2026-06-02"</span></span>
+<span><span class="co">#&gt;   .. ..$ citationShort   : chr "Freedom House (2025) – processed by Our World in Data"</span></span>
+<span><span class="co">#&gt;   .. ..$ citationLong    : chr "Freedom House (2025) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__</span></span>
+<span><span class="co">#&gt;   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/1039982.metadata.json"</span></span>
+<span><span class="co">#&gt;  $ dateDownloaded: chr "2025-06-23"</span></span></code></pre></div>
 <p>The only difference is in the <code>originalChartUrl</code> value:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">metadata</span>, <span class="va">metadata_url</span><span class="op">)</span></span>
@@ -202,47 +201,45 @@
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">catalog</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/owid_get_catalog.html">owid_get_catalog</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">catalog</span></span>
-<span><span class="co">#&gt; # A tibble: 5,012 × 18</span></span>
-<span><span class="co">#&gt;       id slug     type  config created_at updated_at last_edited_at published_at</span></span>
-<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;       </span></span>
-<span><span class="co">#&gt;  1  7968 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…</span></span>
-<span><span class="co">#&gt;  2  7967 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          </span></span>
-<span><span class="co">#&gt;  3  7966 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… ""          </span></span>
-<span><span class="co">#&gt;  4  7965 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… "2024-07-30…</span></span>
-<span><span class="co">#&gt;  5  7964 militar… Line… "{\"i… 2024-07-3… 2024-07-3… 2024-07-31 10… "2024-07-30…</span></span>
-<span><span class="co">#&gt;  6  7963 relativ… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          </span></span>
-<span><span class="co">#&gt;  7  7962 tree-co… Stac… "{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… ""          </span></span>
-<span><span class="co">#&gt;  8  7961 hdi-lan… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 15… "2024-07-28…</span></span>
-<span><span class="co">#&gt;  9  7960 hdi-per… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-28…</span></span>
-<span><span class="co">#&gt; 10  7959 are-con… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 12… ""          </span></span>
-<span><span class="co">#&gt; # ℹ 5,002 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 10 more variables: last_edited_by_user_id &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   last_edited_by_user_id_label &lt;chr&gt;, published_by_user_id &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   published_by_user_id_label &lt;chr&gt;, is_indexable &lt;int&gt;, title &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   config_with_defaults &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 5,301 × 19</span></span>
+<span><span class="co">#&gt;    rowid    id config_id            is_inheritance_enabled created_at updated_at</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;chr&gt;                &lt;lgl&gt;                  &lt;date&gt;     &lt;date&gt;    </span></span>
+<span><span class="co">#&gt;  1    26  8727 01978d86-beee-7595-… TRUE                   2025-06-20 2025-06-21</span></span>
+<span><span class="co">#&gt;  2    25  8726 01978cf4-6363-7356-… FALSE                  2025-06-20 2025-06-21</span></span>
+<span><span class="co">#&gt;  3    24  8725 01978ce6-0056-70d1-… TRUE                   2025-06-20 2025-06-21</span></span>
+<span><span class="co">#&gt;  4    23  8724 01978c7e-4996-7d83-… TRUE                   2025-06-20 2025-06-21</span></span>
+<span><span class="co">#&gt;  5    22  8723 01978878-d5b8-78c0-… FALSE                  2025-06-19 2025-06-19</span></span>
+<span><span class="co">#&gt;  6    21  8722 01978873-eaf5-75c0-… FALSE                  2025-06-19 2025-06-19</span></span>
+<span><span class="co">#&gt;  7    20  8721 019787a1-5f3e-7001-… FALSE                  2025-06-19 NA        </span></span>
+<span><span class="co">#&gt;  8    19  8720 019782bc-b4ad-71d2-… TRUE                   2025-06-18 NA        </span></span>
+<span><span class="co">#&gt;  9    18  8719 019781f9-87c8-7f47-… FALSE                  2025-06-18 2025-06-18</span></span>
+<span><span class="co">#&gt; 10    17  8718 019781ec-db06-7b85-… TRUE                   2025-06-18 2025-06-18</span></span>
+<span><span class="co">#&gt; # ℹ 5,291 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 13 more variables: last_edited_at &lt;date&gt;, published_at &lt;date&gt;,</span></span>
+<span><span class="co">#&gt; #   last_edited_by_user_id &lt;int&gt;, published_by_user_id &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   is_indexable &lt;lgl&gt;, config &lt;chr&gt;, slug &lt;chr&gt;, type &lt;chr&gt;, title &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;, is_published &lt;lgl&gt;</span></span></code></pre></div>
 <p>To search for keywords in the catalog, you can use the following helper:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/owid_search.html">owid_search</a></span><span class="op">(</span><span class="va">catalog</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"climate"</span>, <span class="st">"carbon"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 210 × 18</span></span>
-<span><span class="co">#&gt;       id slug     type  config created_at updated_at last_edited_at published_at</span></span>
-<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;chr&gt;       </span></span>
-<span><span class="co">#&gt;  1  7953 hdi-vs-… Line… "{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… "2024-07-26…</span></span>
-<span><span class="co">#&gt;  2  7947 low-car… Scat… "{\"i… 2024-07-2… 2024-07-2… 2024-07-22 10… "2024-07-22…</span></span>
-<span><span class="co">#&gt;  3  7943 tempera… Scat… "{\"i… 2024-07-1… 2024-07-1… 2024-07-19 08… ""          </span></span>
-<span><span class="co">#&gt;  4  7926 global-… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-19 09… "2024-07-03…</span></span>
-<span><span class="co">#&gt;  5  7925 spring-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
-<span><span class="co">#&gt;  6  7924 autumn-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
-<span><span class="co">#&gt;  7  7923 winter-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
-<span><span class="co">#&gt;  8  7922 summer-… Stac… "{\"i… 2024-07-0… 2024-07-0… 2024-07-05 08… "2024-07-03…</span></span>
-<span><span class="co">#&gt;  9  7921 country… Stac… "{\"i… 2024-07-0… 2024-07-1… 2024-07-10 10… "2024-07-03…</span></span>
-<span><span class="co">#&gt; 10  7917 materia… Stac… "{\"i… 2024-07-0… 2024-07-2… 2024-07-24 11… "2024-07-14…</span></span>
-<span><span class="co">#&gt; # ℹ 200 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 10 more variables: last_edited_by_user_id &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   last_edited_by_user_id_label &lt;chr&gt;, published_by_user_id &lt;int&gt;,</span></span>
-<span><span class="co">#&gt; #   published_by_user_id_label &lt;chr&gt;, is_indexable &lt;int&gt;, title &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   config_with_defaults &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 206 × 19</span></span>
+<span><span class="co">#&gt;    rowid    id config_id            is_inheritance_enabled created_at updated_at</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;chr&gt;                &lt;lgl&gt;                  &lt;date&gt;     &lt;date&gt;    </span></span>
+<span><span class="co">#&gt;  1  5166  8555 0195a9ea-1bb2-7af4-… FALSE                  2025-03-18 2025-03-18</span></span>
+<span><span class="co">#&gt;  2  5131  8509 01950523-a967-7c01-… TRUE                   2025-02-14 2025-03-23</span></span>
+<span><span class="co">#&gt;  3  5130  8508 01950523-a857-72c1-… TRUE                   2025-02-14 2025-03-23</span></span>
+<span><span class="co">#&gt;  4  5105  8472 0194b2a8-e036-7c09-… FALSE                  2025-01-29 2025-04-07</span></span>
+<span><span class="co">#&gt;  5  4900  8266 01933e25-e0bc-70e5-… FALSE                  2024-11-18 2024-11-22</span></span>
+<span><span class="co">#&gt;  6  4869  8222 0192d85f-7e6f-7cbb-… FALSE                  2024-10-29 2025-04-07</span></span>
+<span><span class="co">#&gt;  7  5059  8032 0191c217-8b0d-7612-… TRUE                   2024-09-05 2025-05-26</span></span>
+<span><span class="co">#&gt;  8  5058  8031 0191c217-8a17-7cd8-… TRUE                   2024-09-05 2025-05-26</span></span>
+<span><span class="co">#&gt;  9  5057  8030 0191c217-8916-71c6-… TRUE                   2024-09-05 2025-05-26</span></span>
+<span><span class="co">#&gt; 10  5056  8029 0191c217-8831-7fc9-… TRUE                   2024-09-05 2025-05-26</span></span>
+<span><span class="co">#&gt; # ℹ 196 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 13 more variables: last_edited_at &lt;date&gt;, published_at &lt;date&gt;,</span></span>
+<span><span class="co">#&gt; #   last_edited_by_user_id &lt;int&gt;, published_by_user_id &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   is_indexable &lt;lgl&gt;, config &lt;chr&gt;, slug &lt;chr&gt;, type &lt;chr&gt;, title &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;, is_published &lt;lgl&gt;</span></span></code></pre></div>
 <p>There are also a few experimental functions to embed OWID charts. For instance, you can create the HTML to embed a chart:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/owid_embed.html">owid_embed</a></span><span class="op">(</span><span class="va">url</span><span class="op">)</span></span>
