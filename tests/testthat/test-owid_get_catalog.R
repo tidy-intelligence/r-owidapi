@@ -22,7 +22,7 @@ test_that("owid_get_catalog handles request errors gracefully", {
       cli_abort("Mocked network error")
     },
     {
-      expect_error(
+      expect_message(
         owid_get_catalog(),
         regexp = "Failed to retrieve data from Our World in Data\\."
       )
