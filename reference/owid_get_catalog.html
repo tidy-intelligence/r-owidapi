@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">owidapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,25 +61,24 @@ lowercase.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Download a full table</span></span></span>
 <span class="r-in"><span><span class="fu">owid_get_catalog</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,012 × 18</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       id slug     type  config created_at updated_at last_edited_at published_at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>  <span style="text-decoration: underline;">7</span>968 militar… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… <span style="color: #949494;">"</span>2024-07-30…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>  <span style="text-decoration: underline;">7</span>967 militar… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… <span style="color: #949494;">""</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>  <span style="text-decoration: underline;">7</span>966 militar… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-3… 2024-07-3… 2024-07-30 12… <span style="color: #949494;">""</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">7</span>965 militar… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-3… 2024-07-3… 2024-07-31 08… <span style="color: #949494;">"</span>2024-07-30…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">7</span>964 militar… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-3… 2024-07-3… 2024-07-31 10… <span style="color: #949494;">"</span>2024-07-30…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">7</span>963 relativ… Stac… <span style="color: #949494;">"</span>{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… <span style="color: #949494;">""</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">7</span>962 tree-co… Stac… <span style="color: #949494;">"</span>{\"i… 2024-07-2… 2024-07-2… 2024-07-29 15… <span style="color: #949494;">""</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">7</span>961 hdi-lan… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-2… 2024-07-2… 2024-07-28 15… <span style="color: #949494;">"</span>2024-07-28…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">7</span>960 hdi-per… Scat… <span style="color: #949494;">"</span>{\"i… 2024-07-2… 2024-07-2… 2024-07-28 13… <span style="color: #949494;">"</span>2024-07-28…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">7</span>959 are-con… Line… <span style="color: #949494;">"</span>{\"i… 2024-07-2… 2024-07-2… 2024-07-28 12… <span style="color: #949494;">""</span>          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5,002 more rows</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10 more variables: last_edited_by_user_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   last_edited_by_user_id_label &lt;chr&gt;, published_by_user_id &lt;int&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   published_by_user_id_label &lt;chr&gt;, is_indexable &lt;int&gt;, title &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   config_with_defaults &lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5,301 × 19</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    rowid    id config_id            is_inheritance_enabled created_at updated_at</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>    26  <span style="text-decoration: underline;">8</span>727 01978d86-beee-7595-… TRUE                   2025-06-20 2025-06-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>    25  <span style="text-decoration: underline;">8</span>726 01978cf4-6363-7356-… FALSE                  2025-06-20 2025-06-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>    24  <span style="text-decoration: underline;">8</span>725 01978ce6-0056-70d1-… TRUE                   2025-06-20 2025-06-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>    23  <span style="text-decoration: underline;">8</span>724 01978c7e-4996-7d83-… TRUE                   2025-06-20 2025-06-21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>    22  <span style="text-decoration: underline;">8</span>723 01978878-d5b8-78c0-… FALSE                  2025-06-19 2025-06-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>    21  <span style="text-decoration: underline;">8</span>722 01978873-eaf5-75c0-… FALSE                  2025-06-19 2025-06-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>    20  <span style="text-decoration: underline;">8</span>721 019787a1-5f3e-7001-… FALSE                  2025-06-19 <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>    19  <span style="text-decoration: underline;">8</span>720 019782bc-b4ad-71d2-… TRUE                   2025-06-18 <span style="color: #BB0000;">NA</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>    18  <span style="text-decoration: underline;">8</span>719 019781f9-87c8-7f47-… FALSE                  2025-06-18 2025-06-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>    17  <span style="text-decoration: underline;">8</span>718 019781ec-db06-7b85-… TRUE                   2025-06-18 2025-06-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5,291 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 13 more variables: last_edited_at &lt;date&gt;, published_at &lt;date&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   last_edited_by_user_id &lt;int&gt;, published_by_user_id &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_indexable &lt;lgl&gt;, config &lt;chr&gt;, slug &lt;chr&gt;, type &lt;chr&gt;, title &lt;chr&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   subtitle &lt;chr&gt;, note &lt;chr&gt;, title_plus_variant &lt;chr&gt;, is_published &lt;lgl&gt;</span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
@@ -92,7 +91,7 @@ lowercase.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer></div>
