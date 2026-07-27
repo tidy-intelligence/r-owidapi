@@ -11,7 +11,7 @@ owid_get_catalog(snake_case = TRUE)
 lowercase.}
 }
 \value{
-A tibble containing the OWID catalog.
+A tibble containing the OWID catalog, with one row per chart.
 }
 \description{
 Downloads the data catalog of Our World in Data (OWID) hosted on Datasette.

@@ -18,6 +18,35 @@ test_that("the OWID catalog still has the columns we parse", {
   expect_s3_class(catalog$createdAt, "Date")
 })
 
+test_that("owid_get_catalog is not truncated by the Datasette row cap", {
+  skip_on_cran()
+  skip_if_offline()
+
+  catalog <- owid_get_catalog()
+
+  skip_if(is.null(catalog), "OWID catalog is currently unreachable")
+
+  # Datasette caps `_size=max` at max_returned_rows (1000 here), so landing on
+  # exactly that number means the catalog was silently truncated again.
+  expect_gt(nrow(catalog), 1000)
+  expect_equal(nrow(catalog), length(unique(catalog$id)))
+
+  # Cross-check against the row count Datasette reports for the table.
+  count_url <- paste0(
+    "https://datasette-public.owid.io/owid/charts.json",
+    "?_size=0&_shape=objects"
+  )
+  reported <- tryCatch(
+    httr2::request(count_url) |>
+      httr2::req_perform() |>
+      httr2::resp_body_json(),
+    error = function(e) NULL
+  )
+  skip_if(is.null(reported), "Datasette row count is currently unreachable")
+
+  expect_equal(nrow(catalog), reported$filtered_table_rows_count)
+})
+
 test_that("the OWID chart API still returns the expected columns", {
   skip_on_cran()
   skip_if_offline()

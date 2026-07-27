@@ -15,7 +15,9 @@ test_that("owid_get_catalog requests the datasette endpoint", {
 
   expect_length(recorder$urls, 1)
   expect_match(recorder$urls, "datasette-public\\.owid\\.io/owid/charts\\.csv")
-  expect_match(recorder$urls, "_size=max")
+  # `_stream=on` bypasses the Datasette row cap, `_size=max` does not
+  expect_match(recorder$urls, "_stream=on")
+  expect_false(grepl("_size=", recorder$urls))
 })
 
 test_that("owid_get_catalog parses logicals and dates", {
