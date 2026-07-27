@@ -18,7 +18,7 @@ coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](ht
 
 Retrieve data from the Our World in Data (OWID) [Chart
 API](https://docs.owid.io/projects/etl/api/). OWID provides public
-access to more than 5,000 charts focusing on global problems such as
+access to more than 4,000 charts focusing on global problems such as
 poverty, disease, hunger, climate change, war, existential risks, and
 inequality.
 

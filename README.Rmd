@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
- Retrieve data from the Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/). OWID provides public access to more than 5,000 charts focusing on global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality. 
+ Retrieve data from the Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/). OWID provides public access to more than 4,000 charts focusing on global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality. 
 
  The package is part of the [econdataverse](https://www.econdataverse.org/) family of packages aimed at helping economists and financial professionals work with sovereign-level economic data.
 
