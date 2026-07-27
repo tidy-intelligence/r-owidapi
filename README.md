@@ -18,7 +18,7 @@ coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](ht
 
 Retrieve data from the Our World in Data (OWID) [Chart
 API](https://docs.owid.io/projects/etl/api/). OWID provides public
-access to more than 5,000 charts focusing on global problems such as
+access to more than 4,000 charts focusing on global problems such as
 poverty, disease, hunger, climate change, war, existential risks, and
 inequality.
 
@@ -61,18 +61,18 @@ Download the full life expectancy dataset:
 ``` r
 owid_get("life-expectancy")
 #> # A tibble: 21,565 × 4
-#>    entity_name entity_id  year life_expectancy_0__sex_total__age_0
-#>    <chr>       <chr>     <int>                               <dbl>
-#>  1 Afghanistan AFG        1950                                28.2
-#>  2 Afghanistan AFG        1951                                28.6
-#>  3 Afghanistan AFG        1952                                29.0
-#>  4 Afghanistan AFG        1953                                29.5
-#>  5 Afghanistan AFG        1954                                29.7
-#>  6 Afghanistan AFG        1955                                30.4
-#>  7 Afghanistan AFG        1956                                30.8
-#>  8 Afghanistan AFG        1957                                31.3
-#>  9 Afghanistan AFG        1958                                31.8
-#> 10 Afghanistan AFG        1959                                32.3
+#>    entity_name entity_id  year life_expectancy_0
+#>    <chr>       <chr>     <int>             <dbl>
+#>  1 Afghanistan AFG        1950              28.2
+#>  2 Afghanistan AFG        1951              28.6
+#>  3 Afghanistan AFG        1952              29.0
+#>  4 Afghanistan AFG        1953              29.5
+#>  5 Afghanistan AFG        1954              29.7
+#>  6 Afghanistan AFG        1955              30.4
+#>  7 Afghanistan AFG        1956              30.8
+#>  8 Afghanistan AFG        1957              31.3
+#>  9 Afghanistan AFG        1958              31.8
+#> 10 Afghanistan AFG        1959              32.3
 #> # ℹ 21,555 more rows
 ```
 
@@ -81,39 +81,44 @@ Get life expectancy data for Australia, Austria, and Germany:
 ``` r
 owid_get("life-expectancy", entities = c("AUS", "AUT", "GER"))
 #> # A tibble: 190 × 4
-#>    entity_name entity_id  year life_expectancy_0__sex_total__age_0
-#>    <chr>       <chr>     <int>                               <dbl>
-#>  1 Australia   AUS        1885                                49.0
-#>  2 Australia   AUS        1895                                53.0
-#>  3 Australia   AUS        1905                                57  
-#>  4 Australia   AUS        1921                                61.0
-#>  5 Australia   AUS        1922                                62.8
-#>  6 Australia   AUS        1923                                61.7
-#>  7 Australia   AUS        1924                                62.5
-#>  8 Australia   AUS        1925                                63.2
-#>  9 Australia   AUS        1926                                62.9
-#> 10 Australia   AUS        1927                                62.8
+#>    entity_name entity_id  year life_expectancy_0
+#>    <chr>       <chr>     <int>             <dbl>
+#>  1 Australia   AUS        1885              49.0
+#>  2 Australia   AUS        1895              53.0
+#>  3 Australia   AUS        1905              57  
+#>  4 Australia   AUS        1921              61.0
+#>  5 Australia   AUS        1922              62.8
+#>  6 Australia   AUS        1923              61.7
+#>  7 Australia   AUS        1924              62.5
+#>  8 Australia   AUS        1925              63.2
+#>  9 Australia   AUS        1926              62.9
+#> 10 Australia   AUS        1927              62.8
 #> # ℹ 180 more rows
 ```
 
 Download US life expectancy data from 1970 to 1980:
 
 ``` r
-owid_get("life-expectancy", entities = "USA", start_date = 1970, end_date = 1980)
+owid_get(
+  "life-expectancy",
+  entities = "USA",
+  start_date = 1970,
+  end_date = 1980
+)
 #> # A tibble: 11 × 4
-#>    entity_name   entity_id  year life_expectancy_0__sex_total__age_0
-#>    <chr>         <chr>     <int>                               <dbl>
-#>  1 United States USA        1970                                70.7
-#>  2 United States USA        1971                                71.1
-#>  3 United States USA        1972                                71.2
-#>  4 United States USA        1973                                71.4
-#>  5 United States USA        1974                                72.0
-#>  6 United States USA        1975                                72.5
-#>  7 United States USA        1976                                72.8
-#>  8 United States USA        1977                                73.2
-#>  9 United States USA        1978                                73.4
-#> 10 United States USA        1979                                73.8
-#> 11 United States USA        1980                                73.7
+#>    entity_name   entity_id  year life_expectancy_0
+#>    <chr>         <chr>     <int>             <dbl>
+#>  1 United States USA        1970              70.7
+#>  2 United States USA        1971              71.1
+#>  3 United States USA        1972              71.2
+#>  4 United States USA        1973              71.4
+#>  5 United States USA        1974              72.0
+#>  6 United States USA        1975              72.5
+#>  7 United States USA        1976              72.8
+#>  8 United States USA        1977              73.2
+#>  9 United States USA        1978              73.4
+#> 10 United States USA        1979              73.8
+#> 11 United States USA        1980              73.7
 ```
 
 Get daily COVID-19 vaccination doses per capita for Germany between
@@ -143,20 +148,21 @@ url <- paste0(
   "?tab=chart&time=earliest..2023&country=ARG~AUS~BWA~CHN~ALB~DEU"
 )
 owid_get(url = url)
-#> # A tibble: 126 × 4
-#>    entity_name entity_id  year civil.liberties.score
-#>    <chr>       <chr>     <int>                 <int>
-#>  1 Albania     ALB        2003                    42
-#>  2 Albania     ALB        2004                    40
-#>  3 Albania     ALB        2005                    38
-#>  4 Albania     ALB        2006                    38
-#>  5 Albania     ALB        2007                    39
-#>  6 Albania     ALB        2008                    40
-#>  7 Albania     ALB        2009                    39
-#>  8 Albania     ALB        2010                    40
-#>  9 Albania     ALB        2011                    39
-#> 10 Albania     ALB        2012                    39
+#> # A tibble: 126 × 5
+#>    entity_name entity_id  year civil.liberties.score world.region.according.to…¹
+#>    <chr>       <chr>     <int>                 <int> <chr>                      
+#>  1 Albania     ALB        2003                    42 Europe                     
+#>  2 Albania     ALB        2004                    40 Europe                     
+#>  3 Albania     ALB        2005                    38 Europe                     
+#>  4 Albania     ALB        2006                    38 Europe                     
+#>  5 Albania     ALB        2007                    39 Europe                     
+#>  6 Albania     ALB        2008                    40 Europe                     
+#>  7 Albania     ALB        2009                    39 Europe                     
+#>  8 Albania     ALB        2010                    40 Europe                     
+#>  9 Albania     ALB        2011                    39 Europe                     
+#> 10 Albania     ALB        2012                    39 Europe                     
 #> # ℹ 116 more rows
+#> # ℹ abbreviated name: ¹​world.region.according.to.owid
 ```
 
 You can get metadata as a list by either provoding the data set name or
@@ -168,31 +174,44 @@ metadata_url <- owid_get_metadata(url = url)
 str(metadata)
 #> List of 3
 #>  $ chart         :List of 5
-#>   ..$ title           : chr "Civil liberties score"
-#>   ..$ subtitle        : chr "Based on the estimates and scoring by [Freedom House (2024)](#dod:freedom-house). It captures the extent of fre"| __truncated__
-#>   ..$ citation        : chr "Freedom House (2025)"
+#>   ..$ title           : chr "Civil Liberties Score"
+#>   ..$ subtitle        : chr "Data by Freedom House. The score captures the extent of freedom of expression and association, the rule of law,"| __truncated__
+#>   ..$ citation        : chr "Freedom House (2026)"
 #>   ..$ originalChartUrl: chr "https://ourworldindata.org/grapher/civil-liberties-score-fh"
 #>   ..$ selection       :List of 4
 #>   .. ..$ : chr "Argentina"
 #>   .. ..$ : chr "Australia"
 #>   .. ..$ : chr "Botswana"
 #>   .. ..$ : chr "China"
-#>  $ columns       :List of 1
-#>   ..$ Civil liberties score:List of 13
+#>  $ columns       :List of 2
+#>   ..$ Civil liberties score         :List of 13
 #>   .. ..$ titleShort      : chr "Civil liberties score"
 #>   .. ..$ titleLong       : chr "Civil liberties score"
 #>   .. ..$ descriptionShort: chr "The variable identifies the fine-grained extent of freedom of expression and association, the rule of law, and "| __truncated__
 #>   .. ..$ unit            : chr ""
-#>   .. ..$ timespan        : chr "2003-2024"
+#>   .. ..$ timespan        : chr "2003-2025"
 #>   .. ..$ type            : chr "Integer"
-#>   .. ..$ owidVariableId  : int 1039982
+#>   .. ..$ owidVariableId  : int 1210109
 #>   .. ..$ shortName       : chr "civlibs_score"
-#>   .. ..$ lastUpdated     : chr "2025-06-02"
-#>   .. ..$ nextUpdate      : chr "2026-06-02"
-#>   .. ..$ citationShort   : chr "Freedom House (2025) – processed by Our World in Data"
-#>   .. ..$ citationLong    : chr "Freedom House (2025) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
-#>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/1039982.metadata.json"
-#>  $ dateDownloaded: chr "2025-06-23"
+#>   .. ..$ lastUpdated     : chr "2026-03-23"
+#>   .. ..$ nextUpdate      : chr "2027-03-23"
+#>   .. ..$ citationShort   : chr "Freedom House (2026) – processed by Our World in Data"
+#>   .. ..$ citationLong    : chr "Freedom House (2026) – processed by Our World in Data. “Civil liberties score” [dataset]. Freedom House, “Freed"| __truncated__
+#>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/1210109.metadata.json"
+#>   ..$ World region according to OWID:List of 12
+#>   .. ..$ titleShort      : chr "World region according to OWID"
+#>   .. ..$ titleLong       : chr "World region according to OWID"
+#>   .. ..$ descriptionShort: chr "Regions defined by Our World in Data, which are used in OWID charts and maps."
+#>   .. ..$ unit            : chr ""
+#>   .. ..$ timespan        : chr "2023-2023"
+#>   .. ..$ type            : chr "Continent"
+#>   .. ..$ owidVariableId  : int 900801
+#>   .. ..$ shortName       : chr "owid_region"
+#>   .. ..$ lastUpdated     : chr "2023-01-01"
+#>   .. ..$ citationShort   : chr "Our World in Data – processed by Our World in Data"
+#>   .. ..$ citationLong    : chr "Our World in Data – processed by Our World in Data. “World region according to OWID” [dataset]. Our World in Da"| __truncated__
+#>   .. ..$ fullMetadata    : chr "https://api.ourworldindata.org/v1/indicators/900801.metadata.json"
+#>  $ dateDownloaded: chr "2026-07-27"
 ```
 
 The only difference is in the `originalChartUrl` value:
@@ -208,23 +227,22 @@ If you want to fetch the full catalog of available charts:
 ``` r
 catalog <- owid_get_catalog()
 catalog
-#> # A tibble: 5,301 × 19
-#>    rowid    id config_id            is_inheritance_enabled created_at updated_at
-#>    <int> <int> <chr>                <lgl>                  <date>     <date>    
-#>  1    26  8727 01978d86-beee-7595-… TRUE                   2025-06-20 2025-06-21
-#>  2    25  8726 01978cf4-6363-7356-… FALSE                  2025-06-20 2025-06-21
-#>  3    24  8725 01978ce6-0056-70d1-… TRUE                   2025-06-20 2025-06-21
-#>  4    23  8724 01978c7e-4996-7d83-… TRUE                   2025-06-20 2025-06-21
-#>  5    22  8723 01978878-d5b8-78c0-… FALSE                  2025-06-19 2025-06-19
-#>  6    21  8722 01978873-eaf5-75c0-… FALSE                  2025-06-19 2025-06-19
-#>  7    20  8721 019787a1-5f3e-7001-… FALSE                  2025-06-19 NA        
-#>  8    19  8720 019782bc-b4ad-71d2-… TRUE                   2025-06-18 NA        
-#>  9    18  8719 019781f9-87c8-7f47-… FALSE                  2025-06-18 2025-06-18
-#> 10    17  8718 019781ec-db06-7b85-… TRUE                   2025-06-18 2025-06-18
-#> # ℹ 5,291 more rows
-#> # ℹ 13 more variables: last_edited_at <date>, published_at <date>,
-#> #   last_edited_by_user_id <int>, published_by_user_id <int>,
-#> #   is_indexable <lgl>, config <chr>, slug <chr>, type <chr>, title <chr>,
+#> # A tibble: 4,458 × 17
+#>    rowid    id config_id        is_inheritance_enabled force_datapage created_at
+#>    <int> <int> <chr>            <lgl>                  <lgl>          <date>    
+#>  1   106    20 0191b6c7-3629-7… FALSE                  FALSE          2015-07-02
+#>  2   401    27 0191b6c7-3633-7… FALSE                  FALSE          2015-07-07
+#>  3   211    31 0191b6c7-3635-7… FALSE                  FALSE          2015-07-09
+#>  4   104    44 0191b6c7-3638-7… FALSE                  FALSE          2015-07-18
+#>  5   604    46 0191b6c7-363d-7… FALSE                  FALSE          2015-07-20
+#>  6   546    51 0191b6c7-3645-7… FALSE                  FALSE          2015-07-21
+#>  7   602    52 0191b6c7-3647-7… FALSE                  FALSE          2015-07-22
+#>  8   212    56 0191b6c7-364c-7… FALSE                  FALSE          2015-07-24
+#>  9   511    64 0191b6c7-364e-7… FALSE                  FALSE          2015-07-31
+#> 10   605    73 0191b6c7-3653-7… FALSE                  FALSE          2015-08-05
+#> # ℹ 4,448 more rows
+#> # ℹ 11 more variables: updated_at <date>, last_edited_at <date>,
+#> #   published_at <date>, config <chr>, slug <chr>, type <chr>, title <chr>,
 #> #   subtitle <chr>, note <chr>, title_plus_variant <chr>, is_published <lgl>
 ```
 
@@ -232,23 +250,22 @@ To search for keywords in the catalog, you can use the following helper:
 
 ``` r
 owid_search(catalog, c("climate", "carbon"))
-#> # A tibble: 206 × 19
-#>    rowid    id config_id            is_inheritance_enabled created_at updated_at
-#>    <int> <int> <chr>                <lgl>                  <date>     <date>    
-#>  1  5166  8555 0195a9ea-1bb2-7af4-… FALSE                  2025-03-18 2025-03-18
-#>  2  5131  8509 01950523-a967-7c01-… TRUE                   2025-02-14 2025-03-23
-#>  3  5130  8508 01950523-a857-72c1-… TRUE                   2025-02-14 2025-03-23
-#>  4  5105  8472 0194b2a8-e036-7c09-… FALSE                  2025-01-29 2025-04-07
-#>  5  4900  8266 01933e25-e0bc-70e5-… FALSE                  2024-11-18 2024-11-22
-#>  6  4869  8222 0192d85f-7e6f-7cbb-… FALSE                  2024-10-29 2025-04-07
-#>  7  5059  8032 0191c217-8b0d-7612-… TRUE                   2024-09-05 2025-05-26
-#>  8  5058  8031 0191c217-8a17-7cd8-… TRUE                   2024-09-05 2025-05-26
-#>  9  5057  8030 0191c217-8916-71c6-… TRUE                   2024-09-05 2025-05-26
-#> 10  5056  8029 0191c217-8831-7fc9-… TRUE                   2024-09-05 2025-05-26
-#> # ℹ 196 more rows
-#> # ℹ 13 more variables: last_edited_at <date>, published_at <date>,
-#> #   last_edited_by_user_id <int>, published_by_user_id <int>,
-#> #   is_indexable <lgl>, config <chr>, slug <chr>, type <chr>, title <chr>,
+#> # A tibble: 205 × 17
+#>    rowid    id config_id        is_inheritance_enabled force_datapage created_at
+#>    <int> <int> <chr>            <lgl>                  <lgl>          <date>    
+#>  1   501   488 0191b6c7-37aa-7… TRUE                   FALSE          2017-04-07
+#>  2   499   530 0191b6c7-37ce-7… TRUE                   FALSE          2017-04-19
+#>  3   658   784 0191b6c7-38c5-7… FALSE                  FALSE          2017-07-22
+#>  4   163  1108 0191b6c7-3a46-7… FALSE                  FALSE          2017-09-08
+#>  5   165  1129 0191b6c7-3a55-7… FALSE                  FALSE          2017-09-10
+#>  6   711  1277 0191b6c7-3aeb-7… FALSE                  FALSE          2017-10-05
+#>  7    76  1362 0191b6c7-3b27-7… FALSE                  FALSE          2017-10-14
+#>  8   161  1366 0191b6c7-3b2a-7… FALSE                  FALSE          2017-10-15
+#>  9   448  1421 0191b6c7-3b5f-7… FALSE                  FALSE          2017-10-23
+#> 10  2014  2245 0191b6c7-3e77-7… FALSE                  FALSE          2018-02-20
+#> # ℹ 195 more rows
+#> # ℹ 11 more variables: updated_at <date>, last_edited_at <date>,
+#> #   published_at <date>, config <chr>, slug <chr>, type <chr>, title <chr>,
 #> #   subtitle <chr>, note <chr>, title_plus_variant <chr>, is_published <lgl>
 ```
 
@@ -267,13 +284,13 @@ If you want to render embedded OWID charts in a Shiny app, you can use
 library(shiny)
 
 ui <- fluidPage(
- owid_output("co2_chart")
+  owid_output("co2_chart")
 )
 
 server <- function(input, output) {
- owid_server(
-   "co2_chart", 
-   "https://ourworldindata.org/grapher/co2-emissions-per-capita"
+  owid_server(
+    "co2_chart",
+    "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   )
 }
 

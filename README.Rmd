@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/tidy-intelligence/r-owidapi/graph/badge.svg)](https://app.codecov.io/gh/tidy-intelligence/r-owidapi)
 <!-- badges: end -->
 
- Retrieve data from the Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/). OWID provides public access to more than 5,000 charts focusing on global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.
+ Retrieve data from the Our World in Data (OWID) [Chart API](https://docs.owid.io/projects/etl/api/). OWID provides public access to more than 4,000 charts focusing on global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.
 
  The package is part of the [econdataverse](https://www.econdataverse.org/) family of packages aimed at helping economists and financial professionals work with sovereign-level economic data.
 
@@ -65,7 +65,12 @@ owid_get("life-expectancy", entities = c("AUS", "AUT", "GER"))
 Download US life expectancy data from 1970 to 1980:
 
 ```{r}
-owid_get("life-expectancy", entities = "USA", start_date = 1970, end_date = 1980)
+owid_get(
+  "life-expectancy",
+  entities = "USA",
+  start_date = 1970,
+  end_date = 1980
+)
 ```
 
 Get daily COVID-19 vaccination doses per capita for Germany between 2020-12-28 and 2020-12-31:
@@ -127,13 +132,13 @@ If you want to render embedded OWID charts in a Shiny app, you can use `owid_out
 library(shiny)
 
 ui <- fluidPage(
- owid_output("co2_chart")
+  owid_output("co2_chart")
 )
 
 server <- function(input, output) {
- owid_server(
-   "co2_chart", 
-   "https://ourworldindata.org/grapher/co2-emissions-per-capita"
+  owid_server(
+    "co2_chart",
+    "https://ourworldindata.org/grapher/co2-emissions-per-capita"
   )
 }
 

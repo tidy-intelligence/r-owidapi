@@ -2,7 +2,7 @@
 #' @noRd
 prepare_url <- function(url, ending = ".csv") {
   if (grepl(paste0("\\", ending, "\\?"), url)) {
-    return(url)
+    url
   } else {
     parts <- strsplit(url, "\\?", fixed = FALSE)[[1]]
     needs_filtered_param <- grepl("time|country", url, ignore.case = TRUE)
@@ -37,7 +37,7 @@ prepare_url <- function(url, ending = ".csv") {
       )
     }
 
-    return(modified_url)
+    modified_url
   }
 }
 
@@ -49,6 +49,30 @@ format_date <- function(date) {
   } else {
     as.character(date)
   }
+}
+
+#' @keywords internal
+#' @noRd
+parse_catalog_columns <- function(catalog) {
+  # The OWID catalog schema changes over time, so only columns that are
+  # actually present are parsed.
+  logical_columns <- c(
+    "isInheritanceEnabled",
+    "forceDatapage",
+    "isIndexable",
+    "isPublished"
+  )
+  date_columns <- c("createdAt", "updatedAt", "lastEditedAt", "publishedAt")
+
+  for (column in intersect(logical_columns, colnames(catalog))) {
+    catalog[[column]] <- catalog[[column]] == "True"
+  }
+
+  for (column in intersect(date_columns, colnames(catalog))) {
+    catalog[[column]] <- as.Date(catalog[[column]])
+  }
+
+  catalog
 }
 
 #' @keywords internal

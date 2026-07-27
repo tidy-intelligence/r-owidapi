@@ -43,7 +43,7 @@ Retrieves data from Our World in Data (OWID) by specifying a chart identifier
 or direct URL. Allows filtering by entities and time periods.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 # Download a full table
 owid_get("life-expectancy")
