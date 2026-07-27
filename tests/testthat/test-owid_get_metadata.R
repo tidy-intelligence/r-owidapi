@@ -1,10 +1,6 @@
-metadata_fixture <- function() {
-  read_fixture("life-expectancy-metadata.json")
-}
-
 test_that("owid_get_metadata works with chart_id parameter", {
   recorder <- local_mocked_owid(
-    metadata_fixture(),
+    read_fixture("life-expectancy-metadata.json"),
     content_type = "application/json"
   )
 
@@ -19,7 +15,7 @@ test_that("owid_get_metadata works with chart_id parameter", {
 
 test_that("owid_get_metadata works with URL parameter", {
   recorder <- local_mocked_owid(
-    metadata_fixture(),
+    read_fixture("life-expectancy-metadata.json"),
     content_type = "application/json"
   )
 
@@ -37,7 +33,7 @@ test_that("owid_get_metadata works with URL parameter", {
 
 test_that("owid_get_metadata prioritizes url over chart_id", {
   recorder <- local_mocked_owid(
-    metadata_fixture(),
+    read_fixture("life-expectancy-metadata.json"),
     content_type = "application/json"
   )
 
@@ -83,7 +79,7 @@ test_that("owid_get_metadata throws error when both chart_id & url are NULL", {
 
 test_that("owid_get_metadata correctly handles different URL formats", {
   recorder <- local_mocked_owid(
-    metadata_fixture(),
+    read_fixture("life-expectancy-metadata.json"),
     content_type = "application/json"
   )
 

@@ -2,7 +2,7 @@
 #' @noRd
 prepare_url <- function(url, ending = ".csv") {
   if (grepl(paste0("\\", ending, "\\?"), url)) {
-    return(url)
+    url
   } else {
     parts <- strsplit(url, "\\?", fixed = FALSE)[[1]]
     needs_filtered_param <- grepl("time|country", url, ignore.case = TRUE)
@@ -37,7 +37,7 @@ prepare_url <- function(url, ending = ".csv") {
       )
     }
 
-    return(modified_url)
+    modified_url
   }
 }
 

@@ -3,7 +3,7 @@
 
 read_fixture <- function(name) {
   paste(
-    readLines(test_path("fixtures", name), warn = FALSE),
+    readLines(testthat::test_path("fixtures", name), warn = FALSE),
     collapse = "\n"
   )
 }
