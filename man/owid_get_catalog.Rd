@@ -15,6 +15,8 @@ A tibble containing the OWID catalog, with one row per chart.
 }
 \description{
 Downloads the data catalog of Our World in Data (OWID) hosted on Datasette.
+The catalog is retrieved page by page, so the complete set of charts is
+returned rather than just the first page.
 }
 \examples{
 \dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}

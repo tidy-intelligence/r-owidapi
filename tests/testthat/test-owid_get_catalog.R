@@ -1,5 +1,5 @@
 test_that("owid_get_catalog returns expected catalog structure", {
-  local_mocked_owid(read_fixture("catalog.csv"))
+  local_mocked_owid(catalog_pages("catalog.csv"))
 
   result <- owid_get_catalog()
 
@@ -9,19 +9,50 @@ test_that("owid_get_catalog returns expected catalog structure", {
 })
 
 test_that("owid_get_catalog requests the datasette endpoint", {
-  recorder <- local_mocked_owid(read_fixture("catalog.csv"))
+  recorder <- local_mocked_owid(catalog_pages("catalog.csv"))
 
   owid_get_catalog()
 
+  # One page of charts, then an empty page that ends the pagination
+  expect_length(recorder$urls, 2)
+  expect_match(
+    recorder$urls[1],
+    "datasette-public\\.owid\\.io/owid/charts\\.csv"
+  )
+  expect_match(recorder$urls[1], "_size=max")
+  expect_match(recorder$urls[1], "_sort=id")
+  expect_false(grepl("id__gt", recorder$urls[1]))
+
+  # The next page asks for ids above the highest one seen so far
+  expect_match(recorder$urls[2], "id__gt=9219")
+})
+
+test_that("owid_get_catalog combines all pages", {
+  recorder <- local_mocked_owid(
+    catalog_pages("catalog.csv", "catalog-page-2.csv")
+  )
+
+  result <- owid_get_catalog()
+
+  expect_length(recorder$urls, 3)
+  # 3 charts on the first page, 2 on the second, of which 1 is a repeat of a
+  # chart already seen at the page boundary
+  expect_equal(nrow(result), 4)
+  expect_equal(nrow(result), length(unique(result$id)))
+  expect_true(3072 %in% result$id)
+})
+
+test_that("owid_get_catalog stops paging when a page is empty", {
+  recorder <- local_mocked_owid(read_fixture("catalog-empty.csv"))
+
+  result <- owid_get_catalog()
+
   expect_length(recorder$urls, 1)
-  expect_match(recorder$urls, "datasette-public\\.owid\\.io/owid/charts\\.csv")
-  # `_stream=on` bypasses the Datasette row cap, `_size=max` does not
-  expect_match(recorder$urls, "_stream=on")
-  expect_false(grepl("_size=", recorder$urls))
+  expect_equal(nrow(result), 0)
 })
 
 test_that("owid_get_catalog parses logicals and dates", {
-  local_mocked_owid(read_fixture("catalog.csv"))
+  local_mocked_owid(catalog_pages("catalog.csv"))
 
   result <- owid_get_catalog(snake_case = FALSE)
 
@@ -37,7 +68,9 @@ test_that("owid_get_catalog parses logicals and dates", {
 })
 
 test_that("owid_get_catalog handles snake_case", {
-  local_mocked_owid(read_fixture("catalog.csv"))
+  local_mocked_owid(
+    c(catalog_pages("catalog.csv"), catalog_pages("catalog.csv"))
+  )
 
   result <- owid_get_catalog(snake_case = TRUE)
   expect_true(all(c("is_published", "title_plus_variant") %in% names(result)))

@@ -44,7 +44,10 @@ test_that("owid_get_catalog is not truncated by the Datasette row cap", {
   )
   skip_if(is.null(reported), "Datasette row count is currently unreachable")
 
-  expect_equal(nrow(catalog), reported$filtered_table_rows_count)
+  # Allow for OWID publishing a chart between the two requests. The failures
+  # this guards against - the 1000-row cap, or a response cut short mid-stream
+  # - are off by hundreds of rows, not by a handful.
+  expect_lt(abs(nrow(catalog) - reported$filtered_table_rows_count), 25)
 })
 
 test_that("the OWID chart API still returns the expected columns", {

@@ -230,16 +230,16 @@ catalog
 #> # A tibble: 4,458 × 17
 #>    rowid    id config_id        is_inheritance_enabled force_datapage created_at
 #>    <int> <int> <chr>            <lgl>                  <lgl>          <date>    
-#>  1  3973  9219 019f80d3-3f2b-7… TRUE                   FALSE          2026-07-20
-#>  2  2875  9216 019f665e-c39b-7… FALSE                  FALSE          2026-07-15
-#>  3  2417  9214 019f6508-98e7-7… FALSE                  FALSE          2026-07-15
-#>  4  4143  9177 019ee12a-5aeb-7… TRUE                   FALSE          2026-06-19
-#>  5  4142  9176 019ee12a-5952-7… TRUE                   FALSE          2026-06-19
-#>  6  2385  9157 019eda63-9d51-7… TRUE                   FALSE          2026-06-18
-#>  7  2205  9137 019e68bc-1945-7… TRUE                   FALSE          2026-05-27
-#>  8  4131  9123 019e4623-a4a5-7… TRUE                   FALSE          2026-05-20
-#>  9  4128  9122 019e4622-9161-7… TRUE                   FALSE          2026-05-20
-#> 10  4129  9121 019e4622-8fe3-7… TRUE                   FALSE          2026-05-20
+#>  1   106    20 0191b6c7-3629-7… FALSE                  FALSE          2015-07-02
+#>  2   401    27 0191b6c7-3633-7… FALSE                  FALSE          2015-07-07
+#>  3   211    31 0191b6c7-3635-7… FALSE                  FALSE          2015-07-09
+#>  4   104    44 0191b6c7-3638-7… FALSE                  FALSE          2015-07-18
+#>  5   604    46 0191b6c7-363d-7… FALSE                  FALSE          2015-07-20
+#>  6   546    51 0191b6c7-3645-7… FALSE                  FALSE          2015-07-21
+#>  7   602    52 0191b6c7-3647-7… FALSE                  FALSE          2015-07-22
+#>  8   212    56 0191b6c7-364c-7… FALSE                  FALSE          2015-07-24
+#>  9   511    64 0191b6c7-364e-7… FALSE                  FALSE          2015-07-31
+#> 10   605    73 0191b6c7-3653-7… FALSE                  FALSE          2015-08-05
 #> # ℹ 4,448 more rows
 #> # ℹ 11 more variables: updated_at <date>, last_edited_at <date>,
 #> #   published_at <date>, config <chr>, slug <chr>, type <chr>, title <chr>,
@@ -253,16 +253,16 @@ owid_search(catalog, c("climate", "carbon"))
 #> # A tibble: 205 × 17
 #>    rowid    id config_id        is_inheritance_enabled force_datapage created_at
 #>    <int> <int> <chr>            <lgl>                  <lgl>          <date>    
-#>  1  2384  9058 019cc336-627f-7… TRUE                   FALSE          2026-03-06
-#>  2  4348  8968 019b09ed-a018-7… TRUE                   FALSE          2025-12-10
-#>  3  4347  8509 01950523-a967-7… TRUE                   FALSE          2025-02-14
-#>  4  4346  8508 01950523-a857-7… TRUE                   FALSE          2025-02-14
-#>  5  3187  8472 0194b2a8-e036-7… FALSE                  FALSE          2025-01-29
-#>  6  3225  8222 0192d85f-7e6f-7… FALSE                  FALSE          2024-10-29
-#>  7  4419  8032 0191c217-8b0d-7… TRUE                   FALSE          2024-09-05
-#>  8  4418  8031 0191c217-8a17-7… TRUE                   FALSE          2024-09-05
-#>  9  4417  8030 0191c217-8916-7… TRUE                   FALSE          2024-09-05
-#> 10  4416  8029 0191c217-8831-7… TRUE                   FALSE          2024-09-05
+#>  1   501   488 0191b6c7-37aa-7… TRUE                   FALSE          2017-04-07
+#>  2   499   530 0191b6c7-37ce-7… TRUE                   FALSE          2017-04-19
+#>  3   658   784 0191b6c7-38c5-7… FALSE                  FALSE          2017-07-22
+#>  4   163  1108 0191b6c7-3a46-7… FALSE                  FALSE          2017-09-08
+#>  5   165  1129 0191b6c7-3a55-7… FALSE                  FALSE          2017-09-10
+#>  6   711  1277 0191b6c7-3aeb-7… FALSE                  FALSE          2017-10-05
+#>  7    76  1362 0191b6c7-3b27-7… FALSE                  FALSE          2017-10-14
+#>  8   161  1366 0191b6c7-3b2a-7… FALSE                  FALSE          2017-10-15
+#>  9   448  1421 0191b6c7-3b5f-7… FALSE                  FALSE          2017-10-23
+#> 10  2014  2245 0191b6c7-3e77-7… FALSE                  FALSE          2018-02-20
 #> # ℹ 195 more rows
 #> # ℹ 11 more variables: updated_at <date>, last_edited_at <date>,
 #> #   published_at <date>, config <chr>, slug <chr>, type <chr>, title <chr>,

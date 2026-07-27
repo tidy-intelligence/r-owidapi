@@ -3,7 +3,8 @@
 - Fixed `owid_get_catalog()` returning only the first 1000 charts. Datasette caps
   the `_size=max` parameter at its `max_returned_rows` setting, so the catalog was
   silently truncated and `owid_search()` searched only a fraction of it. The
-  request now uses `_stream=on` and returns the complete catalog.
+  catalog is now paged through and returned in full. Rows come back sorted by
+  `id` as a result.
 - Fixed `owid_get_catalog()` failing after OWID removed the `isIndexable` column
   from the catalog. Logical and date columns are now only parsed when they are
   actually present, so future schema changes no longer break the function.
