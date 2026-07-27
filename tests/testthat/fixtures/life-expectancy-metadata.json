@@ -1,0 +1,17 @@
+{
+  "chart": {
+    "title": "Life expectancy",
+    "subtitle": "The period life expectancy at birth.",
+    "citation": "UN WPP (2024); HMD (2024)",
+    "originalChartUrl": "https://ourworldindata.org/grapher/life-expectancy",
+    "selection": ["Germany", "United States"]
+  },
+  "columns": {
+    "life_expectancy_0": {
+      "titleShort": "Life expectancy at birth",
+      "unit": "years",
+      "timespan": "1950-2023"
+    }
+  },
+  "dateDownloaded": "2026-07-25"
+}

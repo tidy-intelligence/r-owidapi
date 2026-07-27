@@ -25,16 +25,19 @@ an OWID catalog data frame. If no columns are specified, it
 searches all character and factor columns.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 # Get the OWID catalog
 catalog <- owid_get_catalog()
 
-# Search for climate or carbon in all text columns
-owid_search(catalog, c("climate", "carbon"))
+# owid_get_catalog() returns NULL if the API is unreachable
+if (!is.null(catalog)) {
+  # Search for climate or carbon in all text columns
+  print(owid_search(catalog, c("climate", "carbon")))
 
-# Search only in the title column
-owid_search(catalog, c("climate", "carbon"), c("title"))
+  # Search only in the title column
+  print(owid_search(catalog, c("climate", "carbon"), c("title")))
+}
 }
 \dontshow{\}) # examplesIf}
 }

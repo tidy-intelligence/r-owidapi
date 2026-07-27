@@ -53,6 +53,30 @@ format_date <- function(date) {
 
 #' @keywords internal
 #' @noRd
+parse_catalog_columns <- function(catalog) {
+  # The OWID catalog schema changes over time, so only columns that are
+  # actually present are parsed.
+  logical_columns <- c(
+    "isInheritanceEnabled",
+    "forceDatapage",
+    "isIndexable",
+    "isPublished"
+  )
+  date_columns <- c("createdAt", "updatedAt", "lastEditedAt", "publishedAt")
+
+  for (column in intersect(logical_columns, colnames(catalog))) {
+    catalog[[column]] <- catalog[[column]] == "True"
+  }
+
+  for (column in intersect(date_columns, colnames(catalog))) {
+    catalog[[column]] <- as.Date(catalog[[column]])
+  }
+
+  catalog
+}
+
+#' @keywords internal
+#' @noRd
 to_snake_case <- function(df) {
   convert_string <- function(x) {
     x <- gsub("_", " ", x)

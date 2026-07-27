@@ -20,7 +20,7 @@ Retrieves the metadata for a data set from Our World in Data (OWID) by
 specifying a chart identifier or direct URL.
 }
 \examples{
-\dontshow{if (curl::has_internet()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (curl::has_internet()) withAutoprint(\{ # examplesIf}
 \donttest{
 # Download metadata using a data set
 owid_get_metadata("life-expectancy")
