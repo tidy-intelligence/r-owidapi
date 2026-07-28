@@ -114,7 +114,7 @@ owid_get_metadata("life-expectancy")
 #> 
 #> 
 #> $dateDownloaded
-#> [1] "2026-07-27"
+#> [1] "2026-07-28"
 #> 
 
 # Download metadata using an url
@@ -231,7 +231,7 @@ owid_get_metadata(
 #> 
 #> 
 #> $dateDownloaded
-#> [1] "2026-07-27"
+#> [1] "2026-07-28"
 #> 
 # }
 ```

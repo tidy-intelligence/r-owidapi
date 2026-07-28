@@ -11,7 +11,7 @@ searches all character and factor columns."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">owidapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,7 @@ searches all character and factor columns."></head><body>
   <main id="main" class="col-md-9"><div class="page-header">
 
       <h1>Search for keywords in OWID catalog data</h1>
-      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-owidapi/blob/main/R/owid_search.R" class="external-link"><code>R/owid_search.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/tidy-intelligence/r-owidapi/blob/v0.1.2/R/owid_search.R" class="external-link"><code>R/owid_search.R</code></a></small>
       <div class="d-none name"><code>owid_search.Rd</code></div>
     </div>
 
@@ -89,12 +89,12 @@ the keywords in at least one of the specified columns.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 205 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    rowid    id config_id        is_inheritance_enabled force_datapage created_at</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   501   488 0191b6c7-37aa-7… TRUE                   FALSE          2017-04-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   499   530 0191b6c7-37ce-7… TRUE                   FALSE          2017-04-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   658   784 0191b6c7-38c5-7… FALSE                  FALSE          2017-07-22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   498   488 0191b6c7-37aa-7… TRUE                   FALSE          2017-04-07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   500   530 0191b6c7-37ce-7… TRUE                   FALSE          2017-04-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   657   784 0191b6c7-38c5-7… FALSE                  FALSE          2017-07-22</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>   163  <span style="text-decoration: underline;">1</span>108 0191b6c7-3a46-7… FALSE                  FALSE          2017-09-08</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>   165  <span style="text-decoration: underline;">1</span>129 0191b6c7-3a55-7… FALSE                  FALSE          2017-09-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   711  <span style="text-decoration: underline;">1</span>277 0191b6c7-3aeb-7… FALSE                  FALSE          2017-10-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>   710  <span style="text-decoration: underline;">1</span>277 0191b6c7-3aeb-7… FALSE                  FALSE          2017-10-05</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>    76  <span style="text-decoration: underline;">1</span>362 0191b6c7-3b27-7… FALSE                  FALSE          2017-10-14</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>   161  <span style="text-decoration: underline;">1</span>366 0191b6c7-3b2a-7… FALSE                  FALSE          2017-10-15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>   448  <span style="text-decoration: underline;">1</span>421 0191b6c7-3b5f-7… FALSE                  FALSE          2017-10-23</span>
@@ -106,16 +106,16 @@ the keywords in at least one of the specified columns.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 47 × 17</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    rowid    id config_id        is_inheritance_enabled force_datapage created_at</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;lgl&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   499   530 0191b6c7-37ce-7… TRUE                   FALSE          2017-04-19</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   658   784 0191b6c7-38c5-7… FALSE                  FALSE          2017-07-22</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>   500   530 0191b6c7-37ce-7… TRUE                   FALSE          2017-04-19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>   657   784 0191b6c7-38c5-7… FALSE                  FALSE          2017-07-22</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>   161  <span style="text-decoration: underline;">1</span>366 0191b6c7-3b2a-7… FALSE                  FALSE          2017-10-15</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>  <span style="text-decoration: underline;">1</span>345  <span style="text-decoration: underline;">2</span>823 0191b6c7-4123-7… FALSE                  FALSE          2018-06-25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>673  <span style="text-decoration: underline;">3</span>302 0191b6c7-4367-7… FALSE                  FALSE          2019-02-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>688  <span style="text-decoration: underline;">4</span>135 0191b6c7-4716-7… FALSE                  FALSE          2020-04-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>  <span style="text-decoration: underline;">2</span>672  <span style="text-decoration: underline;">3</span>302 0191b6c7-4367-7… FALSE                  FALSE          2019-02-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>  <span style="text-decoration: underline;">2</span>689  <span style="text-decoration: underline;">4</span>135 0191b6c7-4716-7… FALSE                  FALSE          2020-04-17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>  <span style="text-decoration: underline;">2</span>267  <span style="text-decoration: underline;">4</span>267 0191b6c7-4782-7… TRUE                   FALSE          2020-07-01</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>  <span style="text-decoration: underline;">1</span>262  <span style="text-decoration: underline;">4</span>303 0191b6c7-47a5-7… FALSE                  FALSE          2020-07-12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>  <span style="text-decoration: underline;">1</span>264  <span style="text-decoration: underline;">4</span>305 0191b6c7-47a7-7… FALSE                  FALSE          2020-07-12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>081  <span style="text-decoration: underline;">4</span>315 0191b6c7-47b1-7… FALSE                  FALSE          2020-07-18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>  <span style="text-decoration: underline;">2</span>080  <span style="text-decoration: underline;">4</span>315 0191b6c7-47b1-7… FALSE                  FALSE          2020-07-18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 37 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 11 more variables: updated_at &lt;date&gt;, last_edited_at &lt;date&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   published_at &lt;date&gt;, config &lt;chr&gt;, slug &lt;chr&gt;, type &lt;chr&gt;, title &lt;chr&gt;,</span></span>
